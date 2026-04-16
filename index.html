@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yao Xie — PhD Scholar | AI, Well-being & HCI</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<title>Yao Xie — PhD Scholar | AI-Enabled Systems & Well-being</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
     --ink: #1a1a18;
@@ -16,14 +17,11 @@
     --accent-light: #e8f0eb;
     --accent-mid: #4a8a60;
     --gold: #b8943a;
-    --gold-light: #f5edd8;
     --rule: #ddd9ce;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--paper);
@@ -46,31 +44,24 @@
     justify-content: space-between;
     height: 56px;
   }
-
   .nav-logo {
     font-family: 'Playfair Display', serif;
     font-size: 17px;
     color: var(--ink);
     text-decoration: none;
     letter-spacing: 0.01em;
+    font-weight: 600;
   }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
   .nav-links a {
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 500;
     color: var(--ink-mid);
     text-decoration: none;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--accent); }
 
   /* HERO */
@@ -80,18 +71,16 @@
     grid-template-columns: 1fr 1fr;
     padding-top: 56px;
   }
-
   .hero-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 6rem 5rem 6rem 7rem;
   }
-
   .hero-tag {
     display: inline-block;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--accent);
@@ -99,527 +88,161 @@
     padding: 5px 12px;
     border-radius: 2px;
     margin-bottom: 2rem;
+    width: fit-content;
   }
-
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(42px, 5vw, 64px);
     line-height: 1.08;
     font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
-
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
+  h1 em { font-style: italic; color: var(--accent); }
   .hero-subtitle {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--ink-mid);
-    margin: 1.5rem 0 2.5rem;
-    max-width: 420px;
-    line-height: 1.8;
+    margin: 1rem 0 2.5rem;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+  .hero-visual {
+    background: var(--accent-light);
+    overflow: hidden;
+  }
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
-  .hero-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--ink-soft);
-    border-left: 2px solid var(--gold);
-    padding-left: 1rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .btn-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
+  /* BUTTONS */
+  .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
     display: inline-block;
     text-decoration: none;
     padding: 12px 24px;
     border-radius: 2px;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.04em;
     transition: all 0.2s;
-    cursor: pointer;
   }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
-
+  .btn-primary { background: var(--accent); color: #fff; }
   .btn-primary:hover { background: #1e3d2a; }
-
-  .btn-outline {
-    border: 1px solid var(--ink-soft);
-    color: var(--ink-mid);
-    background: transparent;
-  }
-
+  .btn-outline { border: 1px solid var(--ink-soft); color: var(--ink-mid); }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-  .hero-visual {
-    background: var(--accent);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    padding: 4rem 3rem;
-  }
-
-  .hero-visual::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-  }
-
-  .hero-visual::after {
-    content: '';
-    position: absolute;
-    bottom: 60px; left: 40px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.04);
-  }
-
-  .hero-stats {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    width: 100%;
-  }
-
-  .stat-box {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 4px;
-    padding: 1.5rem;
-  }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .stat-label {
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
 
   /* SECTIONS */
   section { padding: 7rem 7rem; }
-
   section:nth-child(even) { background: var(--warm-white); }
-
   .section-label {
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 0.75rem;
   }
-
   h2 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(28px, 3.5vw, 42px);
     font-weight: 600;
-    line-height: 1.15;
-    color: var(--ink);
     margin-bottom: 2rem;
   }
 
-  h2 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
   /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; }
+  .about-text p { color: var(--ink-mid); margin-bottom: 1.25rem; font-size: 16px; }
+  .about-aside { border-left: 1px solid var(--rule); padding-left: 2.5rem; }
+  .aside-block { margin-bottom: 2rem; }
+  .aside-block h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.5rem; }
+  .aside-block p { font-size: 14px; color: var(--ink-mid); }
 
-  .about-text p {
+  /* RESEARCH & SYSTEM */
+  .research-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
     color: var(--ink-mid);
-    margin-bottom: 1.25rem;
-    font-size: 16px;
-    line-height: 1.85;
+    max-width: 800px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.5rem;
   }
-
-  .about-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 2rem;
+  .system-box {
+    background: var(--ink);
+    color: #fff;
+    padding: 3rem;
+    border-radius: 4px;
+    margin-bottom: 4rem;
   }
+  .system-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1.5rem; }
+  .system-item h4 { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 0.5rem; }
+  .system-item p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
 
-  .tag {
-    font-size: 12px;
-    padding: 5px 12px;
-    background: var(--accent-light);
-    color: var(--accent);
-    border-radius: 2px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-
-  .about-aside {
-    border-left: 1px solid var(--rule);
-    padding-left: 2.5rem;
-  }
-
-  .aside-block {
-    margin-bottom: 2.5rem;
-  }
-
-  .aside-block h3 {
-    font-size: 13px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--ink-soft);
-    margin-bottom: 0.75rem;
-  }
-
-  .aside-block p {
-    font-size: 14px;
-    color: var(--ink-mid);
-    line-height: 1.7;
-  }
-
-  /* RESEARCH */
-  #research { background: var(--paper); }
-
-  .research-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-
+  .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .research-card {
     background: var(--warm-white);
     border: 1px solid var(--rule);
-    border-radius: 4px;
     padding: 2rem;
-    position: relative;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .research-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-  }
-
-  .research-card::before {
-    content: attr(data-num);
-    position: absolute;
-    top: 1.5rem; right: 1.5rem;
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: var(--accent-light);
-    line-height: 1;
-  }
-
-  .research-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-  }
-
-  .research-card p {
-    font-size: 14px;
-    color: var(--ink-mid);
-    line-height: 1.7;
-  }
-
-  .research-status {
-    display: inline-block;
-    margin-top: 1rem;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  /* FELLOWSHIP */
-  #fellowship {
-    background: var(--accent);
-    color: #fff;
-    padding: 7rem;
-  }
-
-  #fellowship .section-label { color: rgba(255,255,255,0.55); }
-  #fellowship h2 { color: #fff; }
-  #fellowship h2 em { color: rgba(255,255,255,0.65); }
-
-  .fellowship-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5rem;
-    margin-top: 2rem;
-  }
-
-  .fellowship-text p {
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 1.25rem;
-    font-size: 16px;
-    line-height: 1.85;
-  }
-
-  .fellowship-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .pillar {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 4px;
-    padding: 1.5rem;
-  }
-
-  .pillar h4 {
-    font-size: 14px;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 0.5rem;
-  }
-
-  .pillar p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-  }
-
-  /* PUBLICATIONS */
-  .pub-list {
-    margin-top: 1rem;
-    border-top: 1px solid var(--rule);
-  }
-
-  .pub-item {
-    padding: 1.75rem 0;
-    border-bottom: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.5rem;
-    align-items: start;
-  }
-
-  .pub-year {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    padding-top: 3px;
-    min-width: 36px;
-  }
-
-  .pub-content h4 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 0.25rem;
-    line-height: 1.45;
-  }
-
-  .pub-content p {
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-
-  .pub-badge {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 2px;
-    margin-left: 8px;
-    vertical-align: middle;
-  }
-
-  .pub-badge.published {
-    background: var(--accent-light);
-    color: var(--accent);
-  }
-
-  .pub-badge.review {
-    background: var(--gold-light);
-    color: var(--gold);
-  }
-
-  /* AWARDS */
-  .awards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-    margin-top: 1rem;
-  }
-
-  .award-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1.25rem;
-    background: var(--paper);
-    border-radius: 4px;
-  }
-
-  .award-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-top: 8px;
-    flex-shrink: 0;
-  }
-
-  .award-item h4 {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 3px;
-  }
-
-  .award-item p {
-    font-size: 12px;
-    color: var(--ink-soft);
-  }
-
-  /* CONTACT */
-  #contact { background: var(--ink); }
-
-  #contact .section-label { color: rgba(255,255,255,0.4); }
-
-  #contact h2 {
-    color: #fff;
-  }
-
-  #contact h2 em { color: var(--accent-mid); }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    margin-top: 2rem;
-  }
-
-  .contact-text p {
-    color: rgba(255,255,255,0.6);
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-    color: rgba(255,255,255,0.6);
-    font-size: 14px;
-    padding: 1rem 1.25rem;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 4px;
     transition: all 0.2s;
   }
+  .research-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+  .research-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 0.75rem; }
+  .research-card p { font-size: 14px; color: var(--ink-mid); }
 
-  .contact-link:hover {
-    border-color: var(--accent-mid);
-    color: #fff;
-  }
-
-  .contact-link-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.3);
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  .contact-link-value {
+  /* LEADERSHIP & AWARDS */
+  .two-col-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  
+  .service-item { margin-bottom: 2rem; }
+  .service-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 0.25rem; }
+  .service-item p { font-size: 14px; color: var(--ink-mid); }
+  
+  .award-list { list-style: none; }
+  .award-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
     font-size: 14px;
-    color: rgba(255,255,255,0.75);
-  }
-
-  footer {
-    background: var(--ink);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 2rem 7rem;
+    color: var(--ink-mid);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 1rem;
   }
+  .award-list strong { color: var(--ink); font-weight: 600; display: block; margin-bottom: 0.25rem; font-size: 15px;}
+  .award-year { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 600; white-space: nowrap; }
 
-  footer p {
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
+  /* PUBLICATIONS */
+  .pub-item { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
+  .pub-item small { color: var(--accent); font-weight: 600; font-family: 'DM Mono', monospace;}
+  .pub-item h4 { margin: 0.5rem 0; font-size: 16px; }
+  .pub-item p { font-size: 14px; color: var(--ink-soft); }
+
+  /* CONTACT LINKS */
+  .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+  .contact-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    text-decoration: none;
+    transition: all 0.2s;
   }
+  .contact-card:hover { background: var(--accent-light); border-color: var(--accent); transform: translateY(-2px); }
+  .contact-card i { font-size: 24px; color: var(--accent); margin-bottom: 1rem; }
+  .contact-card span { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .contact-card small { font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
 
   /* RESPONSIVE */
-  @media (max-width: 900px) {
-    #hero { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .hero-text { padding: 4rem 2rem; }
-    section, #fellowship, footer { padding: 4rem 2rem; }
-    .about-grid, .research-grid, .fellowship-grid, .contact-grid, .awards-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-    .about-aside { border-left: none; border-top: 1px solid var(--rule); padding: 2rem 0 0; }
+  @media (max-width: 1024px) {
+    #hero, .about-grid, .research-grid, .system-grid, .contact-grid, .two-col-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-visual { height: 400px; }
+    section { padding: 4rem 2rem; }
     .nav-links { display: none; }
   }
-
-  /* ANIMATIONS */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.7s ease forwards;
-  }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .delay-1 { animation-delay: 0.15s; }
-  .delay-2 { animation-delay: 0.3s; }
-  .delay-3 { animation-delay: 0.45s; }
-  .delay-4 { animation-delay: 0.6s; }
 </style>
 </head>
 <body>
@@ -629,382 +252,228 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#research">Research</a></li>
-    <li><a href="#fellowship">Fellowship</a></li>
+    <li><a href="#leadership">Service & Awards</a></li>
     <li><a href="#publications">Publications</a></li>
-    <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<section id="hero">
+<section id="hero" style="padding: 0;">
   <div class="hero-text">
-    <span class="hero-tag fade-in">PhD Scholar · University College Dublin</span>
-    <h1 class="fade-in delay-1">Making <em>well-being</em><br>computable.</h1>
-    <p class="hero-subtitle fade-in delay-2">
-      I sit at the intersection of AI, human well-being, and healthcare — designing systems that preserve human agency in an age of autonomous intelligence.
+    <span class="hero-tag">PhD Scholar · School of Medicine · UCD</span>
+    <h1>Making <em>well-being</em> computable.</h1>
+    <p class="hero-subtitle">
+      Designing AI systems that detect and intervene in well-being risks in high-pressure environments such as medical education.
     </p>
-    <p class="hero-quote fade-in delay-3">"Curiosity is my method. Context is my compass."</p>
-    <div class="btn-row fade-in delay-4">
-      <a href="#fellowship" class="btn btn-primary">Google Fellowship Research</a>
-      <a href="#publications" class="btn btn-outline">Publications</a>
+    <div class="btn-row">
+      <a href="#research" class="btn btn-primary">Research Programme</a>
+      <a href="#leadership" class="btn btn-outline">Leadership & Recognition</a>
     </div>
   </div>
-
   <div class="hero-visual">
-    <div class="hero-stats">
-      <div class="stat-box">
-        <div class="stat-num">6+</div>
-        <div class="stat-label">Peer-reviewed publications</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">WHO</div>
-        <div class="stat-label">Bulletin co-author</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">AIES</div>
-        <div class="stat-label">AAAI/ACM presenter</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">HCI</div>
-        <div class="stat-label">Google fellowship focus</div>
-      </div>
-    </div>
+    <img src="yao-xie.png" alt="Yao Xie Professional Portrait">
   </div>
 </section>
 
 <section id="about">
-  <p class="section-label">About me</p>
+  <p class="section-label">Profile</p>
   <div class="about-grid">
     <div class="about-text">
-      <h2>Researcher, educator,<br><em>bridge-builder.</em></h2>
+      <h2>Researcher, educator,<br><em>system builder.</em></h2>
       <p>
-        I am a second-year PhD scholar at the School of Medicine, University College Dublin, where I study the intersection of AI, technology, and contextual well-being. My research asks a deceptively simple question: can we make well-being explainable — and then teachable — so that AI systems can genuinely support human flourishing rather than merely optimise for proxies of it?
+        I am a PhD scholar at University College Dublin, researching the intersection of AI, human well-being, and healthcare. My work focuses on making well-being explainable and teachable, ensuring AI systems support human flourishing in high-stakes contexts.
       </p>
       <p>
-        My path to this question is deliberately interdisciplinary. I began as a language educator — teaching Mandarin to hundreds of students across China, Thailand, and Ireland — before turning to research. That pedagogical grounding shapes everything I do: I care deeply about whether knowledge translates into understanding, and whether understanding translates into action.
+        With a background spanning language education and digital health, I translate conceptual frameworks into implementable AI-supported systems. I have contributed to multi-national projects on Long-COVID and cardiovascular risk management with the Irish Heart Foundation and European partners.
       </p>
-      <p>
-        I have contributed to projects on Long-COVID management, cardiovascular risk in patients with mental health diagnoses, and inclusive digital health with the Irish Heart Foundation and the Europe ACTIVEAID project. My own programme of work centres on the Spectrum of Contextual Well-being (SCW) framework and the ContextWell intervention system.
-      </p>
-      <p>
-        Beyond research, I am a poet, a 7+ year meditation practitioner, and a multilingual speaker of Chinese, English, and Thai. I believe connecting science, art, and human experience is not a luxury — it is a method.
-      </p>
-      <div class="about-tags">
-        <span class="tag">AI Ethics</span>
-        <span class="tag">Human-Computer Interaction</span>
-        <span class="tag">Medical Education</span>
-        <span class="tag">Digital Health</span>
-        <span class="tag">Well-being Science</span>
-        <span class="tag">Mixed Methods Research</span>
-        <span class="tag">Intervention Design</span>
-      </div>
     </div>
-
     <div class="about-aside">
       <div class="aside-block">
-        <h3>Current Position</h3>
-        <p>PhD Scholar, School of Medicine<br>University College Dublin, Ireland<br><em>June 2024 – Present</em></p>
-      </div>
-      <div class="aside-block">
-        <h3>Previous PhD</h3>
-        <p>School of Education<br>University of Galway, Ireland<br><em>Aug 2022 – June 2024</em><br>International Merit Scholarship 2022–2026</p>
+        <h3>Primary Focus</h3>
+        <p>AI-Enabled Interventions · HCI · Digital Health</p>
       </div>
       <div class="aside-block">
         <h3>Education</h3>
-        <p>BA, Yunnan Normal University &amp; Yunnan Minzu University (Joint Programme), China<br><br>Visiting Student, Mahidol University, Thailand (Fully Funded)</p>
+        <p>PhD, School of Medicine, UCD<br>Previously School of Education, University of Galway</p>
       </div>
       <div class="aside-block">
         <h3>Languages</h3>
         <p>Chinese · English · Thai</p>
-      </div>
-      <div class="aside-block">
-        <h3>Affiliations</h3>
-        <p>IASEAI · COST Action BEACON · IMISCOE PhD Academy · COST Action CA20115</p>
       </div>
     </div>
   </div>
 </section>
 
 <section id="research">
-  <p class="section-label">Research programme</p>
+  <p class="section-label">Research Programme</p>
   <h2>What I'm <em>building.</em></h2>
+  
+  <div class="research-intro">
+    "My work focuses on addressing the gap between human decision-making capacity and AI-mediated environments by designing systems that preserve agency, clarity, and effective action."
+  </div>
+
+  <div class="system-box">
+    <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">System Overview</h3>
+    <div class="system-grid">
+      <div class="system-item">
+        <h4>Input</h4>
+        <p>Behavioural, contextual, and longitudinal well-being data from social microcosms.</p>
+      </div>
+      <div class="system-item">
+        <h4>Process</h4>
+        <p>Modelling well-being as a functional capacity via the Spectrum of Contextual Well-being (SCW).</p>
+      </div>
+      <div class="system-item">
+        <h4>Output</h4>
+        <p>Adaptive feedback mechanisms and agency-preserving intervention strategies.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="research-grid">
-    <div class="research-card" data-num="01">
-      <h3>Spectrum of Contextual Well-being (SCW)</h3>
-      <p>A theoretical framework that conceptualises well-being as a functional capacity — not a static state — shaping perception, judgment, and action across contexts. The foundation of all downstream work.</p>
-      <span class="research-status">● Under peer-review</span>
+    <div class="research-card">
+      <h3>Spectrum of Contextual Well-being</h3>
+      <p>A functional framework mapping perception and judgment across complex AI environments.</p>
     </div>
-
-    <div class="research-card" data-num="02">
-      <h3>ContextWell Programme</h3>
-      <p>An AI-based well-being intervention and learning prototype that makes the SCW framework interactive. Designed for medical students as a social microcosm, with generalisability to other high-stakes environments.</p>
-      <span class="research-status">● Ongoing · Hult Prize national finalist</span>
+    <div class="research-card">
+      <h3>ContextWell Lab</h3>
+      <p>An AI-based intervention system for promoting well-being in high-pressure professional training.</p>
     </div>
-
-    <div class="research-card" data-num="03">
-      <h3>Well-being Efficacy Framework</h3>
-      <p>A proposed construct extending SCW to capture users' ability to sustain clarity, agency, and effective engagement in complex AI-mediated environments. Bridges learning science and decision science.</p>
-      <span class="research-status">● In development</span>
-    </div>
-
-    <div class="research-card" data-num="04">
-      <h3>AI Governance &amp; Human Oversight</h3>
-      <p>Examining human oversight not as procedural compliance, but as a dimension of well-being efficacy — reframing AI governance through a human-capacity lens. Published on arXiv; under peer-review at IASEAI 2026.</p>
-      <span class="research-status">● Under peer-review</span>
-    </div>
-
-    <div class="research-card" data-num="05">
-      <h3>International Healthcare Student Well-being</h3>
-      <p>A systematic integrative review (PROSPERO CRD42024372785) mapping universal barriers and facilitators for international healthcare students' well-being — the population I use as a research microcosm.</p>
-      <span class="research-status">● Published · JMIR Res Protoc</span>
-    </div>
-
-    <div class="research-card" data-num="06">
-      <h3>Inclusive Digital Health</h3>
-      <p>Collaborative work with the Irish Heart Foundation and the Europe ACTIVEAID project on Long-COVID management, cardiovascular risk in mental health patients, and building a more equitable digital health ecosystem.</p>
-      <span class="research-status">● Published · WHO Bulletin</span>
+    <div class="research-card">
+      <h3>AI Governance & Agency</h3>
+      <p>Reframing human oversight as a dimension of well-being efficacy rather than just compliance.</p>
     </div>
   </div>
 </section>
 
-<section id="fellowship">
-  <p class="section-label">Google Fellowship — Human-Computer Interaction</p>
-  <h2>Bridging the <em>capacity gap</em><br>between humans and AI.</h2>
-
-  <div class="fellowship-grid">
-    <div class="fellowship-text">
-      <p>
-        As AI systems become more autonomous, a critical structural problem emerges: users increasingly rely on AI-generated outputs while lacking the cognitive scaffolding to critically evaluate or intervene in automated processes. This is the <strong style="color:#fff;">capacity gap</strong> — and it is the central problem my Google Fellowship research addresses.
-      </p>
-      <p>
-        My proposed work extends the Spectrum of Contextual Well-being into an <strong style="color:#fff;">agency-preserving interaction paradigm</strong> — designing interactive systems that support users' ability not just to understand their context, but to engage actively with AI-mediated information and decision processes.
-      </p>
-      <p>
-        This work is grounded in an iterative design-science methodology, with empirical studies in higher education contexts — environments that mirror the complexity of high-stakes AI deployment at scale.
-      </p>
-      <a href="mailto:yao.xie@ucdconnect.ie" class="btn btn-outline" style="color:rgba(255,255,255,0.7); border-color:rgba(255,255,255,0.3); margin-top:1rem; display:inline-block;">Contact about collaboration</a>
+<section id="leadership" style="background: var(--paper);">
+  <div class="two-col-layout">
+    <div>
+      <p class="section-label">Service & Community</p>
+      <h2>Academic <em>Citizenship.</em></h2>
+      <div style="margin-top: 2rem;">
+        <div class="service-item">
+          <h4>Peer Reviewer & Program Committee</h4>
+          <p>Reviewer for BMC Medical Ethics and AAAI AI for Medicine & Healthcare; PC Member for AAAI (2026).</p>
+        </div>
+        <div class="service-item">
+          <h4>Institutional Governance</h4>
+          <p>Former Governor at University of Galway Governing Authority; Member of the National Student QA Reviewers Pool (QQI).</p>
+        </div>
+        <div class="service-item">
+          <h4>Global Networks & Cost Actions</h4>
+          <p>Member of IASEAI, IMISCOE PhD Academy, and European COST Actions (BEACON, CA20115).</p>
+        </div>
+      </div>
     </div>
 
-    <div class="fellowship-pillars">
-      <div class="pillar">
-        <h4>Contextual Navigation Interfaces</h4>
-        <p>Interactive representations that support users in externalising and exploring how situations are structured — including in digital and AI-mediated contexts.</p>
-      </div>
-      <div class="pillar">
-        <h4>Adaptive Deliberation Mechanisms</h4>
-        <p>Human-in-the-loop interaction patterns that encourage reflection and reduce passive reliance on AI outputs through carefully designed prompts and friction.</p>
-      </div>
-      <div class="pillar">
-        <h4>Well-being Efficacy Measurement</h4>
-        <p>A new construct capturing users' sustained clarity, agency, and effective engagement in complex, AI-mediated environments — moving beyond procedural compliance.</p>
-      </div>
+    <div>
+      <p class="section-label">Recognition</p>
+      <h2>Honors & <em>Funding.</em></h2>
+      <ul class="award-list" style="margin-top: 1rem;">
+        <li>
+          <div>
+            <strong>RCSI & UCD Malaysia Campus Scholarship</strong>
+            <span>One Health Field Training</span>
+          </div>
+          <span class="award-year">2025</span>
+        </li>
+        <li>
+          <div>
+            <strong>Clifford C. Clogg Scholarship</strong>
+            <span>ICPSR Summer Program, University of Michigan</span>
+          </div>
+          <span class="award-year">2024</span>
+        </li>
+        <li>
+          <div>
+            <strong>Nelson Mandela EDI Project Fund</strong>
+            <span>Anti-Racism Week Initiative, University of Galway</span>
+          </div>
+          <span class="award-year">2023</span>
+        </li>
+        <li>
+          <div>
+            <strong>International Merit Scholarship</strong>
+            <span>University of Galway (Four-year funding)</span>
+          </div>
+          <span class="award-year">2022</span>
+        </li>
+        <li>
+          <div>
+            <strong>UCD Advantage Award</strong>
+            <span>University College Dublin</span>
+          </div>
+          <span class="award-year">Recent</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section id="publications">
-  <p class="section-label">Selected publications</p>
-  <h2>The <em>record.</em></h2>
-
-  <div class="pub-list">
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-content">
-        <h4>Towards an inclusive digital health ecosystem <span class="pub-badge published">Published</span></h4>
-        <p>Xie Y, Fadahunsi KP, Kelleher C, Tarn DM, Grace A, O'Donoghue J. <em>Bulletin of the World Health Organization.</em> 103(2):170–173.</p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-content">
-        <h4>Artificial intelligence for contextual well-being: Protocol for an exploratory sequential mixed-methods study with medical students as a social microcosm <span class="pub-badge published">Published</span></h4>
-        <p>Xie Y, Fadahunsi KP, Broughan J, O'Donoghue J, Gallagher J, Cullen W. <em>PLoS ONE.</em> 20(5):e0321426.</p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-content">
-        <h4>AI Contextual Framework: A Zoning Approach to Ethical AI Deployment <span class="pub-badge published">Published</span></h4>
-        <p>Xie Y. <em>Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society (AIES).</em> 8(3), 2942–2943. <a href="https://doi.org/10.1609/aies.v8i3.36801" style="color:var(--accent); font-size:12px;">DOI ↗</a></p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2024</span>
-      <div class="pub-content">
-        <h4>Barriers and facilitators of international healthcare students' well-being in higher education: Protocol for a systematic integrative review <span class="pub-badge published">Published</span></h4>
-        <p>Xie Y, Fadahunsi KP, Flynn P, Taylor-Robinson S, Gallagher J, Cullen W, O'Donoghue J. <em>JMIR Research Protocols.</em> 13:e59927.</p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-content">
-        <h4>Beyond Procedural Compliance: Human Oversight as a Dimension of Well-being Efficacy in AI Governance <span class="pub-badge review">Under review</span></h4>
-        <p>Xie Y, Cullen W. <em>arXiv:2512.13768</em> · Under review at IASEAI 2026.</p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-content">
-        <h4>Well-Being Mechanisms from a Social Microcosm Perspective: A Systematic Integrative Review and Framework <span class="pub-badge review">Under review</span></h4>
-        <p>Xie Y, Fadahunsi KP, Gallagher J, Cullen W, O'Donoghue J. <em>Applied Psychology: Health and Well-Being.</em></p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-content">
-        <h4>AI-Anthropocene: Bridging Evolutionary Mismatches for a Symbiotic Future <span class="pub-badge review">Under review</span></h4>
-        <p>Xie Y, Broughan J, Cullen W. <em>Philosophy &amp; Technology.</em></p>
-      </div>
-    </div>
-
-    <div class="pub-item">
-      <span class="pub-year">2025</span>
-      <div class="pub-content">
-        <h4>Contextual well-being and the perceived role of artificial intelligence among medical students and graduates: an interpretative phenomenological analysis <span class="pub-badge review">Submitted</span></h4>
-        <p>Xie Y, Carberry C, Fadahunsi KP, et al. <em>Medical Education.</em></p>
-      </div>
-    </div>
-  </div>
+  <p class="section-label">Selected Works</p>
+  <h2>Academic <em>Record.</em></h2>
+  <ul style="list-style: none; border-top: 1px solid var(--rule); margin-top: 2rem;">
+    <li class="pub-item">
+      <small>2025</small>
+      <h4>Towards an inclusive digital health ecosystem</h4>
+      <p><em>Bulletin of the World Health Organization.</em> 103(2):170-173.</p>
+    </li>
+    <li class="pub-item">
+      <small>2025</small>
+      <h4>Artificial intelligence for contextual well-being</h4>
+      <p><em>PLoS ONE.</em> 20(5):e0321426. Protocol for exploratory mixed-methods study.</p>
+    </li>
+    <li class="pub-item">
+      <small>2025</small>
+      <h4>AI Contextual Framework: A Zoning Approach to Ethical AI Deployment</h4>
+      <p><em>Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society.</em></p>
+    </li>
+    <li class="pub-item">
+      <small>2024</small>
+      <h4>Barriers and facilitators of international healthcare students' well-being in higher education</h4>
+      <p><em>JMIR Research Protocols.</em> 13:e59927.</p>
+    </li>
+  </ul>
 </section>
 
-<section id="awards">
-  <p class="section-label">Honours &amp; awards</p>
-  <h2>Recognition of the <em>work.</em></h2>
-
-  <div class="awards-grid">
-    <div class="award-item">
-      <div class="award-dot"></div>
-      <div>
-        <h4>UCD Advantage Award</h4>
-        <p>University College Dublin</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <div class="award-dot"></div>
-      <div>
-        <h4>RCSI &amp; UCD Malaysia Campus One Health Field Training Scholarship</h4>
-        <p>July 2025</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <div class="award-dot"></div>
-      <div>
-        <h4>Clifford C. Clogg Scholarship</h4>
-        <p>ICPSR Summer Program, University of Michigan · 2024</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <div class="award-dot"></div>
-      <div>
-        <h4>Herss Summer School Stipend</h4>
-        <p>Higher Education Research &amp; Science Studies, Germany · 2024</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <div class="award-dot"></div>
-      <div>
-        <h4>ECER 2023 Bursary</h4>
-        <p>European Conference on Educational Research · April 2023</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <div class="award-dot"></div>
-      <div>
-        <h4>Nelson Mandela Anti-Racism Week EDI Project Fund</h4>
-        <p>University of Galway · 2022/23</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <div class="award-dot"></div>
-      <div>
-        <h4>International Merit Scholarship 2022–2026</h4>
-        <p>University of Galway</p>
-      </div>
-    </div>
-    <div class="award-item">
-      <div class="award-dot"></div>
-      <div>
-        <h4>Best Teacher Award</h4>
-        <p>Modulo Language School, Thailand · 2019<br>Among 100 teachers in monthly competition</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <p class="section-label">Get in touch</p>
+<section id="contact" style="background: var(--paper);">
+  <p class="section-label">Connect</p>
+  <h2>Open to <em>collaboration.</em></h2>
+  <p style="max-width: 600px; margin-bottom: 3rem;">I am designing systems to understand and intervene in well-being in high-pressure environments. Get in touch for research or consultancy.</p>
+  
   <div class="contact-grid">
-    <div class="contact-text">
-      <h2>Open to <em>collaboration.</em></h2>
-      <p>
-        I am actively seeking collaborators at the intersection of AI, human well-being, and intervention design — especially in the context of the Google Fellowship programme.
-      </p>
-      <p>
-        If you are working on human-centred AI, digital health, or educational technology and see a connection, I would welcome a conversation.
-      </p>
-      <p>
-        I also offer consultancy services for well-being capacity-building projects.
-      </p>
-    </div>
-
-    <div class="contact-links">
-      <a href="mailto:yao.xie@ucdconnect.ie" class="contact-link">
-        <div>
-          <span class="contact-link-label">Email</span>
-          <span class="contact-link-value">yao.xie@ucdconnect.ie</span>
-        </div>
-      </a>
-      <a href="https://scholar.google.com" class="contact-link" target="_blank">
-        <div>
-          <span class="contact-link-label">Google Scholar</span>
-          <span class="contact-link-value">View publication record ↗</span>
-        </div>
-      </a>
-      <a href="https://linkedin.com" class="contact-link" target="_blank">
-        <div>
-          <span class="contact-link-label">LinkedIn</span>
-          <span class="contact-link-value">Connect professionally ↗</span>
-        </div>
-      </a>
-      <a href="#research" class="contact-link">
-        <div>
-          <span class="contact-link-label">ContextWell Lab</span>
-          <span class="contact-link-value">AI well-being intervention programme</span>
-        </div>
-      </a>
-    </div>
+    <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank" class="contact-card">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Google Scholar</span>
+      <small>Publication record</small>
+    </a>
+    
+    <a href="https://toyaoxie.github.io/contextwell/" target="_blank" class="contact-card">
+      <i class="fa-solid fa-microchip"></i>
+      <span>ContextWell</span>
+      <small>AI well-being system</small>
+    </a>
+    
+    <a href="https://www.linkedin.com/in/toyaoxie/" target="_blank" class="contact-card">
+      <i class="fa-brands fa-linkedin-in"></i>
+      <span>LinkedIn</span>
+      <small>Professional profile</small>
+    </a>
+    
+    <a href="https://toyaoxie.substack.com/" target="_blank" class="contact-card">
+      <i class="fa-solid fa-pen-nib"></i>
+      <span>Substack</span>
+      <small>Essays & ideas</small>
+    </a>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Yao Xie · School of Medicine, University College Dublin, Ireland</p>
-  <p>PhD Scholar · AI, Well-being &amp; HCI</p>
+<footer style="padding: 3rem 7rem; border-top: 1px solid var(--rule); font-size: 12px; color: var(--ink-soft); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+  <span>© 2026 Yao Xie · School of Medicine, UCD</span>
+  <span>AI · Well-being · Human-Centered Systems</span>
 </footer>
-
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.research-card, .award-item, .pub-item, .pillar').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(16px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
-});
-</script>
 
 </body>
 </html>
