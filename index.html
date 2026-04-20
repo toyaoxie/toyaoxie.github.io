@@ -102,199 +102,103 @@
   .hero-subtitle {
     font-size: 16px;
     color: var(--ink-mid);
-    margin: 1rem 0 2.5rem;
+    margin: 1rem 0 1rem;
     max-width: 480px;
     line-height: 1.6;
   }
-  
-  /* 首屏社交链接矩阵 */
+  .gs-hint {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
   .hero-socials {
     display: flex;
     gap: 1.25rem;
     margin-top: 2rem;
     flex-wrap: wrap;
   }
-  .hero-socials a {
-    color: var(--ink-soft);
-    font-size: 1.25rem;
-    transition: all 0.2s ease;
-  }
-  .hero-socials a:hover {
-    color: var(--accent);
-    transform: translateY(-3px);
-  }
+  .hero-socials a { color: var(--ink-soft); font-size: 1.25rem; transition: all 0.2s ease; }
+  .hero-socials a:hover { color: var(--accent); transform: translateY(-3px); }
 
-  .hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background: transparent;
-  }
+  .hero-visual { display: flex; justify-content: center; align-items: center; padding: 2rem; }
   .hero-visual img {
-    width: 100%;
-    max-width: 440px;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 16px;
+    width: 100%; max-width: 440px; aspect-ratio: 4 / 5;
+    object-fit: cover; border-radius: 16px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   }
 
   /* BUTTONS */
   .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 2px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    transition: all 0.2s;
+    display: inline-block; text-decoration: none; padding: 12px 24px;
+    border-radius: 2px; font-size: 13px; font-weight: 600;
+    letter-spacing: 0.04em; transition: all 0.2s; cursor: pointer; border: none;
   }
   .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: #1e3d2a; }
-  .btn-outline { border: 1px solid var(--ink-soft); color: var(--ink-mid); }
+  .btn-outline { border: 1px solid var(--ink-soft); color: var(--ink-mid); background: transparent; }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
   /* SECTIONS */
   section { padding: 7rem 10%; }
   section:nth-child(even) { background: var(--warm-white); }
   .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;
   }
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 3.5vw, 42px);
-    font-weight: 600;
-    margin-bottom: 2rem;
-  }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 42px); font-weight: 600; margin-bottom: 2rem; }
 
-  /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; }
-  .about-text p { color: var(--ink-mid); margin-bottom: 1.25rem; font-size: 16px; }
-  .about-aside { border-left: 1px solid var(--rule); padding-left: 2.5rem; }
-  .aside-block { margin-bottom: 2rem; }
-  .aside-block h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.5rem; }
-  .aside-block p { font-size: 14px; color: var(--ink-mid); }
-
-  /* RESEARCH & SYSTEM */
-  .research-intro {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-style: italic;
-    color: var(--ink-mid);
-    max-width: 800px;
-    margin-bottom: 3rem;
-    line-height: 1.6;
-    border-left: 3px solid var(--accent);
-    padding-left: 1.5rem;
-  }
-  .system-box {
-    background: var(--ink);
-    color: #fff;
-    padding: 3rem;
-    border-radius: 4px;
-    margin-bottom: 4rem;
-  }
+  /* RESEARCH BOXES */
+  .system-box { background: var(--ink); color: #fff; padding: 3rem; border-radius: 4px; margin: 3rem 0; }
   .system-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1.5rem; }
   .system-item h4 { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 0.5rem; }
   .system-item p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; }
 
-  .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  .research-card {
-    background: var(--warm-white);
-    border: 1px solid var(--rule);
-    padding: 2rem;
-    transition: all 0.2s;
-    border-radius: 4px;
+  .protoeye-block {
+    margin-top: 4rem; padding: 2.5rem; border: 1px dashed var(--accent);
+    border-radius: 8px; background: var(--accent-light);
   }
-  .research-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-  .research-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 0.75rem; }
-  .research-card p { font-size: 14px; color: var(--ink-mid); }
+  .ipo-flow { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; gap: 1rem; }
+  .ipo-step { flex: 1; background: #fff; padding: 1.5rem; border-radius: 4px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
-  /* MULTI-COL LAYOUTS (for Service, Awards, Pubs, Talks) */
+  /* COLLABORATION & TEAMWORK STYLE */
+  .collab-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+  .collab-card { padding: 2rem; background: var(--paper); border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0; }
+  .collab-card h4 { font-size: 15px; margin-bottom: 0.5rem; color: var(--ink); font-weight: 600; }
+  .collab-card p { font-size: 14px; color: var(--ink-mid); }
+
+  /* LIST UI */
   .two-col-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-  
-  .service-item { margin-bottom: 2rem; }
-  .service-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 0.4rem; color: var(--ink); }
-  .service-item p { font-size: 14px; color: var(--ink-mid); line-height: 1.6; }
-  
   .list-ui { list-style: none; }
   .list-ui li {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--rule);
-    font-size: 14px;
-    color: var(--ink-mid);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
+    padding: 1rem 0; border-bottom: 1px solid var(--rule); font-size: 14px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
   }
   .list-ui strong { color: var(--ink); font-weight: 600; display: block; margin-bottom: 0.25rem; font-size: 15px;}
-  .list-ui span.meta { color: var(--ink-soft); font-size: 13px; display: block;}
   .list-ui .year { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--accent); font-weight: 600; white-space: nowrap; }
 
-  /* CONTACT LINKS */
+  /* IMPACT & CONTACT */
+  .impact-strip { background: var(--accent); color: #fff; padding: 5rem 10%; text-align: center; }
+  .impact-strip h2 { color: #fff; margin-bottom: 1.5rem; }
   .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
   .contact-card {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    text-decoration: none;
-    transition: all 0.2s;
-    border-radius: 4px;
+    display: flex; flex-direction: column; padding: 1.5rem; background: var(--paper);
+    border: 1px solid var(--rule); text-decoration: none; border-radius: 4px; transition: all 0.2s;
   }
   .contact-card:hover { background: var(--accent-light); border-color: var(--accent); transform: translateY(-2px); }
-  .contact-card i { font-size: 24px; color: var(--accent); margin-bottom: 1rem; }
-  .contact-card span { font-size: 14px; font-weight: 600; color: var(--ink); }
-  .contact-card small { font-size: 11px; color: var(--ink-soft); margin-top: 4px; }
 
-  footer {
-    padding: 3rem 10%;
-    border-top: 1px solid var(--rule);
-    font-size: 12px;
-    color: var(--ink-soft);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-    background: var(--paper);
-  }
+  footer { padding: 3rem 10%; border-top: 1px solid var(--rule); font-size: 12px; color: var(--ink-soft); display: flex; justify-content: space-between; }
 
-  /* RESPONSIVE DESIGN */
   @media (max-width: 1024px) {
-    #hero { 
-      grid-template-columns: 1fr;
-      min-height: auto;
-      padding-top: 100px;
-      text-align: center;
-    }
+    #hero { grid-template-columns: 1fr; padding-top: 100px; text-align: center; }
     .hero-text { padding: 2rem 5%; align-items: center; }
-    .hero-subtitle { margin-left: auto; margin-right: auto; }
-    .btn-row, .hero-socials { justify-content: center; }
-    .about-grid, .two-col-layout { grid-template-columns: 1fr; gap: 3rem; }
-    .about-aside { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 2rem; }
-    .research-grid, .system-grid, .contact-grid { grid-template-columns: repeat(2, 1fr); }
-    section { padding: 5rem 5%; }
-    footer { padding: 3rem 5%; }
-  }
-
-  @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    .hero-visual img { max-width: 320px; }
-    .research-grid, .system-grid, .contact-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    section { padding: 4rem 5%; }
-    footer { flex-direction: column; text-align: center; }
+    .collab-grid, .two-col-layout, .ipo-flow { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -306,7 +210,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#leadership">Leadership</a></li>
-    <li><a href="#academic-record">Academic Record</a></li>
+    <li><a href="#qualifications">Research & Qualifications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -316,276 +220,104 @@
     <span class="hero-tag">PhD Scholar · Human-Computer Interaction (HCI)</span>
     <h1>Making <em>well-being</em> computable.</h1>
     <p class="hero-subtitle">
-      Designing AI systems that detect and intervene in well-being risks in high-pressure environments such as medical education.
+      Designing AI systems that detect and intervene in well-being risks in high-stakes environments. [cite: 4, 13]
     </p>
+    <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank" class="gs-hint">
+       <i class="fa-solid fa-graduation-cap"></i> View my University College Dublin Scholar Profile → 
+    </a>
     <div class="btn-row">
       <a href="#research" class="btn btn-primary">Research Programme</a>
       <a href="#leadership" class="btn btn-outline">Leadership & Impact</a>
     </div>
-    
     <div class="hero-socials">
-      <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
-      <a href="https://toyaoxie.github.io/contextwell/" target="_blank" title="ContextWell Lab"><i class="fa-solid fa-microchip"></i></a>
-      <a href="https://www.linkedin.com/in/toyaoxie/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://x.com/toyaoxie" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="https://www.youtube.com/@toyaoxie" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://instagram.com/toyaoxie" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="https://toyaoxie.substack.com/" target="_blank" title="Substack"><i class="fa-solid fa-pen-nib"></i></a>
+      <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>
+      <a href="https://www.linkedin.com/in/toyaoxie/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://x.com/toyaoxie" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
   </div>
-  
-  <div class="hero-visual">
-    <img src="yao-xie.png" alt="Yao Xie Professional Portrait">
-  </div>
+  <div class="hero-visual"><img src="yao-xie.png" alt="Yao Xie Portrait"></div>
 </section>
 
 <section id="about">
   <p class="section-label">Profile</p>
   <div class="about-grid">
     <div class="about-text">
-      <h2>Researcher, educator,<br><em>system builder.</em></h2>
-      <p>
-        I am a PhD scholar at University College Dublin, researching the intersection of Human-Computer Interaction (HCI), AI, and healthcare. My work focuses on making well-being explainable and teachable, ensuring AI systems support human flourishing in high-stakes contexts.
-      </p>
-      <p>
-        With a background spanning language education and digital health, I translate conceptual frameworks into implementable AI-supported systems. I have contributed to multi-national projects on Long-COVID and cardiovascular risk management with the Irish Heart Foundation and European partners.
-      </p>
+      <h2>Researcher, educator,<br><em>system builder.</em> [cite: 10, 11]</h2>
+      <p>I am a PhD scholar at <strong>University College Dublin</strong>, researching the intersection of HCI, AI, and healthcare. [cite: 12]</p>
     </div>
     <div class="about-aside">
-      <div class="aside-block">
-        <h3>Primary Focus</h3>
-        <p>Human-Computer Interaction · AI-Enabled Interventions · Digital Health</p>
-      </div>
-      <div class="aside-block">
-        <h3>Education</h3>
-        <p>PhD, School of Medicine, UCD<br>Previously School of Education, University of Galway</p>
-      </div>
-      <div class="aside-block">
-        <h3>Languages</h3>
-        <p>Chinese · English · Thai</p>
-      </div>
+      <div class="aside-block"><h3>Focus</h3><p>HCI · Digital Health [cite: 17]</p></div>
+      <div class="aside-block"><h3>Education</h3><p>PhD, <strong>University College Dublin</strong> [cite: 19]</p></div>
     </div>
   </div>
+</section>
+
+<section id="collaboration" style="background: var(--paper);">
+    <p class="section-label">Googliness & Teamwork</p>
+    <h2>Collaborative <em>Innovation.</em></h2>
+    <div class="collab-grid">
+        <div class="collab-card">
+            <h4>Cross-Disciplinary Synergy</h4>
+            <p>Collaborated with clinicians at <strong>University College Dublin</strong> School of Medicine to define AI system requirements for high-pressure medical education. [cite: 4, 19]</p>
+        </div>
+        <div class="collab-card">
+            <h4>International Ecosystems</h4>
+            <p>Partnered with the Irish Heart Foundation and European COST Actions (BEACON) to translate digital health frameworks into clinical outcomes. [cite: 15, 51]</p>
+        </div>
+        <div class="collab-card">
+            <h4>Institutional Governance</h4>
+            <p>Elected Governor at University of Galway, advocating for postgraduate strategies through collaborative governance. [cite: 47]</p>
+        </div>
+        <div class="collab-card">
+            <h4>Community Leadership</h4>
+            <p>Founded and led the ISLA Society, managing cross-functional teams to support international scholars. [cite: 43, 44]</p>
+        </div>
+    </div>
 </section>
 
 <section id="research">
-  <p class="section-label">Research Programme</p>
-  <h2>What I'm <em>building.</em></h2>
-  
-  <div class="research-intro">
-    "My work focuses on addressing the gap between human decision-making capacity and AI-mediated environments by designing systems that preserve agency, clarity, and effective action."
-  </div>
-
-  <div class="system-box">
-    <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">System Overview</h3>
-    <div class="system-grid">
-      <div class="system-item">
-        <h4>Input</h4>
-        <p>Behavioural, contextual, and longitudinal well-being data from social microcosms.</p>
-      </div>
-      <div class="system-item">
-        <h4>Process</h4>
-        <p>Modelling well-being as a functional capacity via the Spectrum of Contextual Well-being (SCW).</p>
-      </div>
-      <div class="system-item">
-        <h4>Output</h4>
-        <p>Adaptive feedback mechanisms and agency-preserving intervention strategies.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="research-grid">
-    <div class="research-card">
-      <h3>Spectrum of Contextual Well-being</h3>
-      <p>A functional framework mapping perception and judgment across complex AI environments.</p>
-    </div>
-    <div class="research-card">
-      <h3>ContextWell Lab</h3>
-      <p>An early-stage research lab and intervention system born from my PhD. It serves as an incubator to translate theoretical well-being frameworks into scalable AI applications and concrete clinical outcomes.</p>
-    </div>
-    <div class="research-card">
-      <h3>AI Governance & Agency</h3>
-      <p>Reframing human oversight as a dimension of well-being efficacy rather than just compliance.</p>
+  <p class="section-label">Current Project</p>
+  <div class="protoeye-block">
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 1rem;">Project: <em>Protoeye</em></h3>
+    <div class="ipo-flow">
+        <div class="ipo-step"><i class="fa-solid fa-sign-in"></i><strong>Input</strong><br><small>Contextual Data [cite: 29]</small></div>
+        <div class="ipo-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="ipo-step"><i class="fa-solid fa-gears"></i><strong>Process</strong><br><small>SCW Modeling [cite: 31]</small></div>
+        <div class="ipo-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        <div class="ipo-step"><i class="fa-solid fa-sign-out"></i><strong>Output</strong><br><small>Feedback [cite: 33]</small></div>
     </div>
   </div>
 </section>
 
-<section id="leadership" style="background: var(--paper);">
+<section id="qualifications">
   <div class="two-col-layout">
-    <div>
-      <p class="section-label">Leadership & Governance</p>
-      <h2>Driving <em>Impact.</em></h2>
-      <div style="margin-top: 2rem;">
-        <div class="service-item">
-          <h4>Founder & Organization Leader</h4>
-          <p>Founded and led the ISLA Society, managing a strategic team to secure university-level funding and develop initiatives supporting international scholars. Led cross-functional teams in digital strategy prior to academia.</p>
-        </div>
-        <div class="service-item">
-          <h4>Institutional Governance</h4>
-          <p>Elected Governor at the University of Galway Governing Authority, advocating for EDI policies and postgraduate strategies at the highest institutional level. Quality Assurance Reviewer for QQI.</p>
-        </div>
-        <div class="service-item">
-          <h4>Academic Service & Peer Review</h4>
-          <p>Program Committee Member for AAAI (2026); Peer Reviewer for BMC Medical Ethics. Active contributor to international networks including IASEAI and European COST Actions (BEACON).</p>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <p class="section-label">Recognition</p>
-      <h2>Honors & <em>Funding.</em></h2>
-      <ul class="list-ui" style="margin-top: 1rem;">
-        <li>
-          <div>
-            <strong>RCSI & UCD Malaysia Campus Scholarship</strong>
-            <span class="meta">One Health Field Training</span>
-          </div>
-          <span class="year">2025</span>
-        </li>
-        <li>
-          <div>
-            <strong>Clifford C. Clogg Scholarship</strong>
-            <span class="meta">ICPSR Summer Program, University of Michigan</span>
-          </div>
-          <span class="year">2024</span>
-        </li>
-        <li>
-          <div>
-            <strong>Nelson Mandela EDI Project Fund</strong>
-            <span class="meta">Secured funding for Anti-Racism initiatives</span>
-          </div>
-          <span class="year">2023</span>
-        </li>
-        <li>
-          <div>
-            <strong>International Merit Scholarship</strong>
-            <span class="meta">University of Galway (Four-year funding)</span>
-          </div>
-          <span class="year">2022</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="academic-record">
-  <div class="two-col-layout">
-    
     <div>
       <p class="section-label">Selected Works</p>
-      <h2>Publications.</h2>
+      <h2>Publications. [cite: 65]</h2>
       <ul class="list-ui" style="margin-top: 2rem;">
-        <li>
-          <div>
-            <strong>Towards an inclusive digital health ecosystem</strong>
-            <span class="meta"><em>Bulletin of the World Health Organization.</em> 103(2):170-173.</span>
-          </div>
-          <span class="year">2025</span>
-        </li>
-        <li>
-          <div>
-            <strong>Artificial intelligence for contextual well-being</strong>
-            <span class="meta"><em>PLoS ONE.</em> 20(5):e0321426. Protocol for exploratory mixed-methods study.</span>
-          </div>
-          <span class="year">2025</span>
-        </li>
-        <li>
-          <div>
-            <strong>AI Contextual Framework: A Zoning Approach</strong>
-            <span class="meta"><em>Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society.</em></span>
-          </div>
-          <span class="year">2025</span>
-        </li>
-        <li>
-          <div>
-            <strong>Barriers and facilitators of international healthcare students' well-being</strong>
-            <span class="meta"><em>JMIR Research Protocols.</em> 13:e59927.</span>
-          </div>
-          <span class="year">2024</span>
-        </li>
+        <li><div><strong>Towards inclusive digital health</strong><br><small>Bulletin of the WHO [cite: 66]</small></div><span class="year">2025</span></li>
+        <li><div><strong>AI Contextual Framework</strong><br><small>Proc. AAAI/ACM AIES [cite: 66]</small></div><span class="year">2025</span></li>
       </ul>
+      <div style="margin-top: 2rem;">
+          <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank" class="btn btn-primary">
+            <i class="fa-solid fa-graduation-cap"></i> View all on Google Scholar 
+          </a>
+      </div>
     </div>
-
     <div>
-      <p class="section-label">Conferences & Talks</p>
-      <h2>Presentations.</h2>
+      <p class="section-label">Recognition</p>
+      <h2>Honors. [cite: 52]</h2>
       <ul class="list-ui" style="margin-top: 2rem;">
-        <li>
-          <div>
-            <strong>AAAI/ACM Conference on AI, Ethics, and Society (AIES)</strong>
-            <span class="meta">Paper Presentation</span>
-          </div>
-          <span class="year">2025</span>
-        </li>
-        <li>
-          <div>
-            <strong>ELLIS UnConference EurIPS</strong>
-            <span class="meta">Poster Presentation</span>
-          </div>
-          <span class="year">2025</span>
-        </li>
-        <li>
-          <div>
-            <strong>BERA ECR Journey</strong>
-            <span class="meta">Paper Accepted</span>
-          </div>
-          <span class="year">2026</span>
-        </li>
-        <li>
-          <div>
-            <strong>Nelson Mandela Anti-Racism Week</strong>
-            <span class="meta">Organiser & Invited Panellist (Open Talk)</span>
-          </div>
-          <span class="year">2023</span>
-        </li>
-        <li>
-          <div>
-            <strong>ECER Emerging Researchers' Conference (ERC)</strong>
-            <span class="meta">Paper Presentation</span>
-          </div>
-          <span class="year">2022</span>
-        </li>
+        <li><div><strong>RCSI & University College Dublin Scholarship [cite: 54]</strong></div><span class="year">2025</span></li>
+        <li><div><strong>Clifford C. Clogg Scholarship [cite: 56]</strong></div><span class="year">2024</span></li>
       </ul>
     </div>
-    
-  </div>
-</section>
-
-<section id="contact" style="background: var(--paper);">
-  <p class="section-label">Connect</p>
-  <h2>Open to <em>collaboration.</em></h2>
-  <p style="max-width: 600px; margin-bottom: 3rem;">I am designing systems to understand and intervene in well-being in high-pressure environments. Get in touch for research or consultancy.</p>
-  
-  <div class="contact-grid">
-    <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank" class="contact-card">
-      <i class="fa-solid fa-graduation-cap"></i>
-      <span>Google Scholar</span>
-      <small>Publication record</small>
-    </a>
-    
-    <a href="https://toyaoxie.github.io/contextwell/" target="_blank" class="contact-card">
-      <i class="fa-solid fa-microchip"></i>
-      <span>ContextWell</span>
-      <small>AI well-being system</small>
-    </a>
-    
-    <a href="https://www.linkedin.com/in/toyaoxie/" target="_blank" class="contact-card">
-      <i class="fa-brands fa-linkedin-in"></i>
-      <span>LinkedIn</span>
-      <small>Professional profile</small>
-    </a>
-    
-    <a href="mailto:yao.xie@ucdconnect.ie" class="contact-card">
-      <i class="fa-solid fa-envelope"></i>
-      <span>Email Me</span>
-      <small>yao.xie@ucdconnect.ie</small>
-    </a>
   </div>
 </section>
 
 <footer>
-  <span>© 2026 Yao Xie · School of Medicine, UCD</span>
-  <span>Human-Computer Interaction · AI Systems · Digital Health</span>
+  <span>© 2026 Yao Xie · <strong>University College Dublin</strong> </span>
+  <span>HCI · AI Systems · Digital Health [cite: 86]</span>
 </footer>
 
 </body>
