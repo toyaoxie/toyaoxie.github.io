@@ -406,6 +406,18 @@ async function renderList(kind) {
   const grouped = { published: [], draft: [], archived: [] };
   items.forEach(i => (grouped[i[pubField]] || grouped.draft).push(i));
 
+  const NEWS_CATEGORY_COLORS = {
+    'Speaking': '#2d5a3d', 'Publication': '#1a1a18', 'Recognition': '#b8943a',
+    'Academic Leadership': '#4a8a60', 'Research': '#2d5a3d', 'ContextWell': '#1a1a18',
+  };
+  function visualFor(item) {
+    if (kind === 'news') {
+      const color = NEWS_CATEGORY_COLORS[item.category] || '#8a8a82';
+      return `<div style="width:44px;height:44px;border-radius:4px;background:${color};flex-shrink:0;"></div>`;
+    }
+    return `<img src="${item.image || '/yao-xie.png'}" alt="">`;
+  }
+
   function rowHTML(item) {
     const editHash = `#/${kind}/edit/${item.slug}`;
     const liveLink = (item[pubField] === 'published' && meta.hasPage)
@@ -415,7 +427,7 @@ async function renderList(kind) {
     return `
       <div class="admin-list-row">
         <div class="admin-list-main">
-          <img src="${item.image || '/yao-xie.png'}" alt="">
+          ${visualFor(item)}
           <div>
             <div class="admin-list-title">${item.title}</div>
             <div class="admin-list-meta">${metaBits}</div>
@@ -557,7 +569,7 @@ async function renderForm(kind, slug) {
     if (kind === 'news') {
       return {
         slug: existingSlug, title: raw.title, summary: raw.summary, body: raw.body || raw.summary,
-        date: raw.date || todayISO(), category: raw.category, image: document.getElementById('imagePath').value || '/yao-xie.png',
+        date: raw.date || todayISO(), category: raw.category,
         status, featured: !!raw.featured,
         source: raw.sourceName ? { name: raw.sourceName, url: raw.sourceUrl } : null,
         related: { project: raw.relatedProject || null, initiative: raw.relatedInitiative || null, publication: raw.relatedPublication || null },
@@ -788,7 +800,7 @@ function newsFormHTML(d, presetCategory) {
       ${textField('date', 'Date', d.date || todayISO(), { type: 'date' })}
       ${selectField('category', 'Category', cfgOpts, d.category || presetCategory || cfgOpts[0])}
     </div>
-    ${imageFieldHTML(d.image)}
+    <p style="font-size:12px; color:var(--ink-soft); margin:-0.5rem 0 1.25rem;">News cards use a colored design based on category — no image needed.</p>
     ${textField('link', 'Link (optional)', d.link || '', { placeholder: 'https://…' })}
     <details class="admin-more">
       <summary>More details</summary>

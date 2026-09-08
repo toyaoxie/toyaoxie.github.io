@@ -141,6 +141,26 @@ h3.subhead:first-of-type { margin-top: 0; }
 .write-card h4 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 0.75rem; }
 .write-card p { font-size: 14px; color: var(--ink-mid); margin-bottom: 1rem; }
 
+/* NEWS — colored brand cards replace photos entirely (no image upload needed for News) */
+.news-visual {
+  width: 100%; aspect-ratio: 4/3; border-radius: 4px; margin-bottom: 1rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem;
+  color: #fff; text-align: center; padding: 1rem;
+}
+.news-visual i { font-size: 26px; opacity: 0.9; }
+.news-visual span { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+.news-visual.hero { aspect-ratio: auto; height: 220px; border-radius: 6px; margin-bottom: 2rem; }
+.news-visual.hero i { font-size: 40px; }
+.news-visual.hero span { font-size: 13px; }
+
+.news-visual.cat-speaking { background: var(--accent); }
+.news-visual.cat-publication { background: var(--ink); }
+.news-visual.cat-recognition { background: var(--gold); }
+.news-visual.cat-academic { background: var(--accent-mid); }
+.news-visual.cat-research { background: linear-gradient(135deg, var(--accent), var(--accent-mid)); }
+.news-visual.cat-contextwell { background: linear-gradient(135deg, var(--ink), var(--accent)); }
+.news-visual.cat-default { background: var(--ink-soft); }
+
 /* NEWS / PROJECTS / INITIATIVES — shared archive grid pattern */
 .news-grid, .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
 .news-tile, .content-tile { text-decoration: none; color: var(--ink); display: block; }

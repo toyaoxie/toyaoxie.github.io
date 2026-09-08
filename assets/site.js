@@ -119,15 +119,32 @@ async function renderHomepage() {
 }
 
 // ---------- Archive grids (News / Projects / Initiatives) ----------
+// News no longer uses photos — each category gets an on-brand colored card
+// instead, so there's nothing to upload for a News item at all.
+const NEWS_CATEGORY_STYLE = {
+  'Speaking':             { cls: 'cat-speaking',    icon: 'fa-microphone-lines' },
+  'Publication':          { cls: 'cat-publication', icon: 'fa-book-open' },
+  'Recognition':          { cls: 'cat-recognition', icon: 'fa-award' },
+  'Academic Leadership':  { cls: 'cat-academic',    icon: 'fa-graduation-cap' },
+  'Research':             { cls: 'cat-research',    icon: 'fa-flask' },
+  'ContextWell':          { cls: 'cat-contextwell', icon: 'fa-microchip' },
+};
+function newsVisualHTML(category, extraClass) {
+  const style = NEWS_CATEGORY_STYLE[category] || { cls: 'cat-default', icon: 'fa-star' };
+  return `<div class="news-visual ${style.cls}${extraClass ? ' ' + extraClass : ''}"><i class="fa-solid ${style.icon}"></i><span>${category || 'News'}</span></div>`;
+}
+
 function tileFor(item, basePath) {
   const a = document.createElement('a');
   a.className = 'content-tile';
   a.href = `${basePath}${item.slug}/`;
-  const metaLine = item.status && basePath !== '/news/'
+  const isNews = basePath === '/news/';
+  const metaLine = item.status && !isNews
     ? `<span class="status">${item.status}</span>`
     : `<div class="news-meta">${formatDate(item.date)}${item.category ? ` <span class="cat"> · ${item.category}</span>` : ''}</div>`;
+  const visual = isNews ? newsVisualHTML(item.category) : `<img class="thumb" src="${item.image}" alt="${item.title}">`;
   a.innerHTML = `
-    <img class="thumb" src="${item.image}" alt="${item.title}">
+    ${visual}
     ${metaLine}
     <h3>${item.title}</h3>
     <p>${item.summary}</p>`;
@@ -230,7 +247,9 @@ async function renderDetailPage(kind) {
 
   document.title = `${item.title} — Yao Xie`;
 
-  let html = `<img class="post-hero" src="${item.image}" alt="${item.title}">`;
+  let html = kind === 'news'
+    ? newsVisualHTML(item.category, 'hero')
+    : `<img class="post-hero" src="${item.image}" alt="${item.title}">`;
 
   if (kind === 'news') {
     html += `<div class="post-meta">${formatDate(item.date)} <span class="cat"> · ${item.category}</span></div>`;
