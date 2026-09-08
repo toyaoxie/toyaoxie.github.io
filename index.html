@@ -20,7 +20,6 @@
   <a href="/" class="nav-logo">Yao Xie</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/" class="active">Home</a></li>
-    <li><a href="/think.html">Think</a></li>
     <li><a href="/build.html">Build</a></li>
     <li><a href="/write.html">Write</a></li>
     <li><a href="/news.html">News</a></li>
@@ -33,10 +32,11 @@
 <section id="hero">
   <div class="hero-text">
     <span class="hero-tag">Researcher · Founder · Writer</span>
-    <h1>Exploring how <em>context</em> shapes human capacity.</h1>
-    <p class="hero-subtitle">I work at the intersection of public health, human capacity, context and AI.</p>
+    <h1 id="heroHeadline">Exploring how <em>context</em> shapes human capacity.</h1>
+    <p class="hero-subtitle" id="heroDescription">I work at the intersection of public health, human capacity, context and AI.</p>
     <div class="btn-row">
-      <a href="/think.html" class="btn btn-primary">Explore my work</a>
+      <a href="/build.html" id="heroButton" class="btn btn-primary">Explore what I'm building →</a>
+      <a href="https://toyaoxie.substack.com/" target="_blank" class="btn btn-outline">Read my thinking on Substack</a>
     </div>
     <div class="hero-socials">
       <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
@@ -54,42 +54,13 @@
 </section>
 
 <div class="territory-band alt" style="background: var(--warm-white); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
-  <p>How context shapes human capacity.</p>
-</div>
-
-<div class="home-block">
-  <p class="section-label">Think</p>
-  <h2 style="font-size: clamp(24px, 3vw, 34px);">A few selected <em>ideas.</em></h2>
-  <div class="idea-tags">
-    <span class="idea-tag">Contextual well-being</span>
-    <span class="idea-tag">Human capacity</span>
-    <span class="idea-tag">AI &amp; cognitive environments</span>
-    <span class="idea-tag">Agency-preserving AI</span>
-  </div>
-  <p style="color: var(--ink-mid); max-width: 640px; margin-bottom: 1.5rem;">The recurring question across this work: how do the environments people move through — clinical, digital, institutional — shape what they're able to perceive, decide and do?</p>
-  <a href="/think.html" class="explore-link">Explore Think →</a>
+  <p id="territoryLine">How context shapes human capacity.</p>
 </div>
 
 <div class="home-block alt" style="background: var(--warm-white);">
   <p class="section-label">Build</p>
   <h2 style="font-size: clamp(24px, 3vw, 34px);">ContextWell &amp; selected <em>projects.</em></h2>
-  <div class="mini-grid">
-    <a href="/build.html" class="mini-card">
-      <span class="tag">Flagship initiative</span>
-      <h4>ContextWell Lab</h4>
-      <p>An independent research initiative translating well-being frameworks into applied AI systems.</p>
-    </a>
-    <a href="/build.html" class="mini-card">
-      <span class="tag">Project</span>
-      <h4>AI Contextual Framework</h4>
-      <p>A zoning approach to AI governance, presented at AAAI/ACM AIES 2025.</p>
-    </a>
-    <a href="/build.html" class="mini-card">
-      <span class="tag">Project</span>
-      <h4>ContextWell system</h4>
-      <p>Applying the Spectrum of Contextual Well-being to high-pressure environments like medical education.</p>
-    </a>
-  </div>
+  <div class="mini-grid" id="homeFeaturedProjects"><!-- populated by site.js from content/homepage.json --></div>
   <div style="margin-top: 1.5rem;">
     <a href="/build.html" class="explore-link">Explore Build →</a>
   </div>
@@ -98,18 +69,15 @@
 <div class="home-block">
   <p class="section-label">Write</p>
   <h2 style="font-size: clamp(24px, 3vw, 34px);">Selected publications <em>&amp; essays.</em></h2>
-  <ul class="list-ui" style="max-width: 700px;">
-    <li>
-      <div><strong>Towards an inclusive digital health ecosystem</strong><span class="meta"><em>Bulletin of the World Health Organization</em></span></div>
-      <span class="year">2025</span>
-    </li>
-    <li>
-      <div><strong>AI Contextual Framework: A Zoning Approach</strong><span class="meta"><em>AAAI/ACM Conference on AI, Ethics, and Society</em></span></div>
-      <span class="year">2025</span>
-    </li>
-  </ul>
+  <ul class="list-ui" style="max-width: 700px;" id="homeFeaturedPublications"><!-- populated by site.js --></ul>
   <p style="color: var(--ink-mid); margin: 1.5rem 0;">Plus public essays on Substack, and a poetry &amp; book project in progress.</p>
   <a href="/write.html" class="explore-link">Explore Writing →</a>
+</div>
+
+<div class="bridge-block">
+  <p class="section-label">Thinking</p>
+  <p class="lede">I write about context, human capacity, public health, AI and the environments that shape what people can perceive, decide and do.</p>
+  <a href="https://toyaoxie.substack.com/" target="_blank" class="explore-link">Read on Substack →</a>
 </div>
 
 <div class="home-block alt" style="background: var(--warm-white);">
@@ -139,8 +107,7 @@
   <span>Researcher · Founder · Writer</span>
 </footer>
 
-<script src="/assets/news-data.js"></script>
 <script src="/assets/site.js"></script>
-<script>renderHomeNewsTeaser(3);</script>
+<script>renderHomepage();</script>
 </body>
 </html>

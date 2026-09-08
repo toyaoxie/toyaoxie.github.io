@@ -141,15 +141,24 @@ h3.subhead:first-of-type { margin-top: 0; }
 .write-card h4 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 0.75rem; }
 .write-card p { font-size: 14px; color: var(--ink-mid); margin-bottom: 1rem; }
 
-/* NEWS — archive grid */
-.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
-.news-tile { text-decoration: none; color: var(--ink); display: block; }
-.news-tile .thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; margin-bottom: 1rem; background: var(--rule); }
-.news-tile .news-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-soft); }
-.news-tile .cat { color: var(--accent); font-weight: 600; letter-spacing: 0.06em; }
-.news-tile h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin: 0.4rem 0; transition: color 0.2s; }
-.news-tile:hover h3 { color: var(--accent); }
-.news-tile p { font-size: 13px; color: var(--ink-mid); }
+/* NEWS / PROJECTS / INITIATIVES — shared archive grid pattern */
+.news-grid, .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+.news-tile, .content-tile { text-decoration: none; color: var(--ink); display: block; }
+.news-tile .thumb, .content-tile .thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; margin-bottom: 1rem; background: var(--rule); }
+.news-tile .news-meta, .content-tile .news-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-soft); }
+.news-tile .cat, .content-tile .cat { color: var(--accent); font-weight: 600; letter-spacing: 0.06em; }
+.news-tile h3, .content-tile h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin: 0.4rem 0; transition: color 0.2s; }
+.news-tile:hover h3, .content-tile:hover h3 { color: var(--accent); }
+.news-tile p, .content-tile p { font-size: 13px; color: var(--ink-mid); }
+.content-tile .status { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 10px; margin-bottom: 0.5rem; }
+
+/* Substack / Thinking bridge */
+.bridge-block { text-align: center; padding: 3.5rem 10%; }
+.bridge-block p.lede { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(18px, 2.4vw, 24px); max-width: 640px; margin: 0 auto 1.5rem; color: var(--ink-mid); }
+
+/* source / coverage link on a detail page */
+.source-link { font-size: 13px; color: var(--ink-mid); }
+.source-link a { color: var(--accent); font-weight: 600; text-decoration: none; }
 
 .news-featured { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; text-decoration: none; color: var(--ink); }
 .news-featured img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px; }

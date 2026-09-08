@@ -3,12 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>News — Yao Xie</title>
-<meta name="description" content="A chronological record of what's happening around Yao Xie's research, ContextWell, and public work.">
-<meta property="og:title" content="News — Yao Xie">
-<meta property="og:description" content="Updates and momentum.">
-<meta property="og:image" content="/yao-xie.png">
-<meta property="og:type" content="website">
+<title>Project — Yao Xie</title>
+<meta name="description" content="A project from Yao Xie's Build page.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/assets/style.css">
@@ -19,23 +15,21 @@
   <a href="/" class="nav-logo">Yao Xie</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/build.html">Build</a></li>
+    <li><a href="/build.html" class="active">Build</a></li>
     <li><a href="/write.html">Write</a></li>
-    <li><a href="/news.html" class="active">News</a></li>
+    <li><a href="/news.html">News</a></li>
     <li><a href="/about.html">About</a></li>
     <li><a href="/work-with-me.html" class="nav-cta">Work With Me</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
 </nav>
 
-<div class="page-header">
-  <p class="section-label">News</p>
-  <h1>Updates <em>&amp; momentum.</em></h1>
-  <p class="lede">A chronological record of what's happening — publications, talks, recognition and ContextWell milestones.</p>
+<div class="page-header" style="padding-bottom: 0;">
+  <p class="section-label"><a href="/build.html" style="color: var(--accent);">← Build</a></p>
 </div>
 
-<section>
-  <div class="news-grid" id="newsGrid"><!-- populated by site.js --></div>
+<section style="padding-top: 2rem;">
+  <div id="postRoot"><!-- rendered by site.js: renderDetailPage("projects") --></div>
 </section>
 
 <footer>
@@ -44,6 +38,6 @@
 </footer>
 
 <script src="/assets/site.js"></script>
-<script>renderNewsArchive();</script>
+<script>renderDetailPage("projects");</script>
 </body>
 </html>

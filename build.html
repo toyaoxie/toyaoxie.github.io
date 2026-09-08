@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build — Yao Xie</title>
-<meta name="description" content="ContextWell Lab and the projects and initiatives Yao Xie has founded, led and convened.">
+<meta name="description" content="Projects and initiatives Yao Xie is building — including ContextWell Lab, her flagship research initiative.">
+<meta property="og:title" content="Build — Yao Xie">
+<meta property="og:description" content="Things I am building, developing and bringing into the world.">
+<meta property="og:image" content="/yao-xie.png">
+<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/assets/style.css">
@@ -15,7 +19,6 @@
   <a href="/" class="nav-logo">Yao Xie</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/think.html">Think</a></li>
     <li><a href="/build.html" class="active">Build</a></li>
     <li><a href="/write.html">Write</a></li>
     <li><a href="/news.html">News</a></li>
@@ -28,71 +31,22 @@
 <div class="page-header">
   <p class="section-label">Build</p>
   <h1>Projects <em>&amp; initiatives.</em></h1>
-  <p class="lede">Things Yao has founded, led, convened and built — from an applied AI lab to institutional governance work.</p>
+  <p class="lede">Things I am building, developing and bringing into the world.</p>
 </div>
 
 <section>
-  <h3 class="subhead" style="margin-top: 0;">Flagship initiative</h3>
-  <div class="project-card flagship" style="max-width: 760px;">
-    <span class="status">Building</span>
-    <h4 style="font-size: 22px;">ContextWell Lab</h4>
-    <p>An independent research initiative focused on human-centred AI and well-being — translating theoretical frameworks into scalable AI applications and concrete clinical outcomes. Yao directs research direction, system development and execution within a lean structure.</p>
-    <div style="margin-top: 1.25rem;">
-      <a href="https://toyaoxie.github.io/contextwell/" target="_blank" class="btn btn-outline btn-sm">Visit ContextWell Lab →</a>
-    </div>
-  </div>
+  <h3 class="subhead" style="margin-top: 0;">Featured initiative</h3>
+  <div id="initiativesFeatured"><!-- populated by site.js --></div>
 </section>
 
 <section class="alt">
   <h3 class="subhead" style="margin-top: 0;">Projects</h3>
-  <div class="project-grid">
-    <div class="project-card">
-      <span class="status">Building</span>
-      <h4>ContextWell system</h4>
-      <p>Translating the Spectrum of Contextual Well-being framework into an applied AI system for high-pressure environments such as medical education.</p>
-    </div>
-    <div class="project-card">
-      <span class="status">Researching</span>
-      <h4>AI Contextual Framework</h4>
-      <p>A zoning approach to AI governance, reframing oversight as a dimension of well-being efficacy — presented at AAAI/ACM AIES 2025. Full citation under <a href="/write.html" style="color: var(--accent);">Write</a>.</p>
-    </div>
-    <div class="project-card">
-      <span class="status">Exploring</span>
-      <h4>New directions</h4>
-      <p>Early-stage explorations in human-AI interaction and contextual feedback systems. More to be added here as these develop.</p>
-    </div>
-  </div>
+  <div class="content-grid" id="projectsGrid"><!-- populated by site.js --></div>
 </section>
 
 <section>
   <h3 class="subhead" style="margin-top: 0;">Initiatives</h3>
-
-  <div class="service-item" style="margin-bottom: 2.5rem;">
-    <h3 style="font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.2rem;">Founded &amp; led</h3>
-    <p>
-      <strong>Founder, ISLA Society:</strong> Built a strategic team to secure institutional funding and deliver initiatives supporting international scholars. Led cross-functional teams in digital strategy, coordinating technical and organisational work.
-    </p>
-  </div>
-
-  <div class="service-item" style="margin-bottom: 2.5rem;">
-    <h3 style="font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.2rem;">Governed &amp; convened</h3>
-    <p style="margin-bottom: 1rem;">
-      <strong>Elected Governor:</strong> Served at the University of Galway Governing Authority, contributing to institutional decision-making on Equality, Diversity, and Inclusion (EDI) and postgraduate strategy.
-    </p>
-    <p>
-      <strong>Quality Assurance Reviewer (QQI):</strong> Contributing to external evaluation processes in higher education alongside national and international experts for Quality and Qualifications Ireland.
-    </p>
-  </div>
-
-  <div class="service-item">
-    <h3 style="font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.2rem;">Reviewed &amp; organised</h3>
-    <p style="margin-bottom: 1rem;">
-      <strong>Associate Editor (Invited) — ECIS 2026:</strong> Overseeing peer review processes, recruiting reviewers, and synthesising evaluations into meta-review decisions for the European Conference on Information Systems.
-    </p>
-    <p style="font-size: 14px; color: var(--ink-mid);">
-      Program Committee Member for AAAI (2026) and peer reviewer for <em>BMC Medical Ethics</em>. Active contributor to international networks including IASEAI and European COST Actions (BEACON).
-    </p>
-  </div>
+  <div class="content-grid" id="initiativesGrid"><!-- populated by site.js --></div>
 </section>
 
 <footer>
@@ -101,5 +55,9 @@
 </footer>
 
 <script src="/assets/site.js"></script>
+<script>
+  renderProjectArchive();
+  renderInitiativeArchive();
+</script>
 </body>
 </html>

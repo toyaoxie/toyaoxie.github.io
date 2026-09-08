@@ -15,7 +15,6 @@
   <a href="/" class="nav-logo">Yao Xie</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/think.html">Think</a></li>
     <li><a href="/build.html">Build</a></li>
     <li><a href="/write.html" class="active">Write</a></li>
     <li><a href="/news.html">News</a></li>
@@ -33,40 +32,7 @@
 
 <section>
   <h3 class="subhead" style="margin-top: 0;">Publications</h3>
-  <div style="display: flex; gap: 4rem; margin-top: 1rem; flex-wrap: wrap;">
-    <ul class="list-ui" style="flex: 1; min-width: 260px;">
-      <li>
-        <div>
-          <strong>Towards an inclusive digital health ecosystem</strong>
-          <span class="meta"><em>Bulletin of the World Health Organization.</em> 103(2):170-173.</span>
-        </div>
-        <span class="year">2025</span>
-      </li>
-      <li>
-        <div>
-          <strong>Artificial intelligence for contextual well-being</strong>
-          <span class="meta"><em>PLoS ONE.</em> 20(5):e0321426. Protocol for exploratory mixed-methods study.</span>
-        </div>
-        <span class="year">2025</span>
-      </li>
-    </ul>
-    <ul class="list-ui" style="flex: 1; min-width: 260px;">
-      <li>
-        <div>
-          <strong>AI Contextual Framework: A Zoning Approach</strong>
-          <span class="meta"><em>Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society.</em></span>
-        </div>
-        <span class="year">2025</span>
-      </li>
-      <li>
-        <div>
-          <strong>Barriers and facilitators of international healthcare students' well-being</strong>
-          <span class="meta"><em>JMIR Research Protocols.</em> 13:e59927.</span>
-        </div>
-        <span class="year">2024</span>
-      </li>
-    </ul>
-  </div>
+  <ul class="list-ui" id="pubList" style="max-width: 760px; margin-top: 1rem;"><!-- populated by site.js --></ul>
   <div style="margin-top: 2rem;">
     <a href="https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
       <i class="fa-solid fa-graduation-cap"></i> View more on Google Scholar
@@ -75,18 +41,18 @@
 </section>
 
 <section class="alt">
-  <h3 class="subhead" style="margin-top: 0;">Essays &amp; writing</h3>
+  <h3 class="subhead" style="margin-top: 0;">Selected writing</h3>
   <div class="write-grid">
     <div class="write-card">
-      <p class="section-label">Essays</p>
-      <h4>Public writing</h4>
-      <p>Reflections on research, systems and human capacity, written for a general audience alongside the academic work.</p>
-      <a href="https://toyaoxie.substack.com/" target="_blank" class="btn btn-outline btn-sm">Read on Substack →</a>
-    </div>
-    <div class="write-card">
-      <p class="section-label">Also in progress</p>
+      <p class="section-label">In progress</p>
       <h4>Poetry &amp; a book project</h4>
       <p>A literary practice running alongside the research — including a long-form book project exploring context, human experience and transformation. Details to follow as these develop.</p>
+    </div>
+    <div class="write-card">
+      <p class="section-label">More frequent writing</p>
+      <h4>Essays &amp; ideas</h4>
+      <p>Ongoing personal and intellectual writing — reflections on research, systems and human capacity — lives on Substack, not here.</p>
+      <a href="https://toyaoxie.substack.com/" target="_blank" class="btn btn-outline btn-sm">Read on Substack →</a>
     </div>
   </div>
 </section>
@@ -97,5 +63,6 @@
 </footer>
 
 <script src="/assets/site.js"></script>
+<script>renderPublications();</script>
 </body>
 </html>

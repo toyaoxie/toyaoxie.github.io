@@ -1,0 +1,28 @@
+[
+  {
+    "slug": "contextwell",
+    "title": "ContextWell Lab",
+    "summary": "An independent research initiative focused on human-centred AI and well-being — translating theoretical frameworks into scalable AI applications and concrete clinical outcomes.",
+    "status": "Building",
+    "image": "/yao-xie.png",
+    "overview": "ContextWell Lab is an independent research initiative focused on human-centred AI and well-being — translating the Spectrum of Contextual Well-being into applied AI systems and concrete clinical outcomes.",
+    "what": "Research, system design and prototyping around agency-preserving AI in high-pressure environments, starting with medical education.",
+    "role": "Founder and director — setting research direction, leading system development, and executing within a lean structure.",
+    "website": "https://toyaoxie.github.io/contextwell/",
+    "featured": true,
+    "publishStatus": "published"
+  },
+  {
+    "slug": "isla-society",
+    "title": "ISLA Society",
+    "summary": "A society supporting international scholars — built to secure institutional funding and coordinate initiatives across digital strategy and community.",
+    "status": "Founded",
+    "image": "/yao-xie.png",
+    "overview": "ISLA Society supports international scholars, coordinating funding and initiatives that help them navigate academic and institutional life.",
+    "what": "Institutional funding applications, digital strategy, and community initiatives for international scholars.",
+    "role": "Founder — built a strategic team, secured institutional funding, and led cross-functional work in digital strategy.",
+    "website": null,
+    "featured": false,
+    "publishStatus": "published"
+  }
+]

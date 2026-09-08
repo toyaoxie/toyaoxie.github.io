@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "contextwell-system",
+    "title": "ContextWell system",
+    "summary": "Translating the Spectrum of Contextual Well-being framework into an applied AI system for high-pressure environments such as medical education.",
+    "status": "Building",
+    "image": "/yao-xie.png",
+    "problem": "High-pressure environments — like medical education — often ask people to make good decisions without giving them the contextual support to do so.",
+    "idea": "Model well-being as a functional capacity, using the Spectrum of Contextual Well-being (SCW) to map how perception and judgment shift across different environments.",
+    "building": "An applied AI system that turns the SCW framework into adaptive feedback for people working under pressure, starting with medical education.",
+    "stage": "In active development as part of ContextWell Lab.",
+    "publishStatus": "published",
+    "related": {
+      "initiative": "contextwell",
+      "publication": null
+    }
+  },
+  {
+    "slug": "ai-contextual-framework",
+    "title": "AI Contextual Framework",
+    "summary": "A zoning approach to AI governance, reframing oversight as a dimension of well-being efficacy — presented at AAAI/ACM AIES 2025.",
+    "status": "Researching",
+    "image": "/yao-xie.png",
+    "problem": "AI governance is often framed purely as compliance — a checklist rather than a design principle that actually protects the people affected.",
+    "idea": "A zoning approach that reframes human oversight as a dimension of well-being efficacy, not just a regulatory requirement.",
+    "building": "A conceptual framework, presented at AAAI/ACM AIES 2025, intended to inform how agency-preserving AI systems get designed and evaluated.",
+    "stage": "Published and presented; being extended into applied design guidance.",
+    "publishStatus": "published",
+    "related": {
+      "initiative": null,
+      "publication": "aies-2025"
+    }
+  }
+]

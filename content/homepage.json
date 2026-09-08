@@ -1,0 +1,30 @@
+{
+  "heroHeadline": "Exploring how <em>context</em> shapes human capacity.",
+  "heroDescription": "I work at the intersection of public health, human capacity, context and AI.",
+  "heroButtonLabel": "Explore what I'm building",
+  "heroButtonLink": "/build.html",
+  "territoryLine": "How context shapes human capacity.",
+  "featuredInitiative": "contextwell",
+  "featuredProjects": [
+    "ai-contextual-framework",
+    "contextwell-system"
+  ],
+  "featuredPublications": [
+    "who-bulletin-2025",
+    "aies-2025"
+  ],
+  "currently": [
+    {
+      "title": "PhD Research",
+      "meta": "School of Medicine, University College Dublin"
+    },
+    {
+      "title": "ContextWell Lab",
+      "meta": "founder & director"
+    },
+    {
+      "title": "Associate Editor",
+      "meta": "ECIS 2026 (invited)"
+    }
+  ]
+}

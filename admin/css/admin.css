@@ -1,0 +1,117 @@
+/* Content Studio — reuses the site's CSS variables (--ink, --accent, --paper, etc.)
+   from /assets/style.css. This file only adds admin-specific layout. */
+
+.admin-body { background: var(--paper); }
+
+.admin-topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px;
+  background: var(--ink); color: #fff;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.admin-logo { color: #fff; text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 600; font-size: 16px; }
+.admin-logo span { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.6); margin-left: 8px; }
+.admin-topbar-right { display: flex; gap: 0.75rem; align-items: center; }
+.admin-link-btn { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; border: 1px solid rgba(255,255,255,0.25); padding: 6px 12px; border-radius: 3px; transition: all 0.2s; }
+.admin-link-btn:hover { color: #fff; border-color: #fff; }
+
+.admin-main { max-width: 900px; margin: 0 auto; padding: 90px 2rem 4rem; }
+
+.admin-h1 { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 600; margin-bottom: 0.3rem; }
+.admin-sub { color: var(--ink-mid); font-size: 14px; margin-bottom: 2rem; }
+
+.admin-card { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 6px; padding: 1.75rem; margin-bottom: 1.25rem; }
+
+.admin-big-btn {
+  display: flex; align-items: center; gap: 0.75rem; width: 100%; text-align: left;
+  background: var(--accent); color: #fff; border: none; border-radius: 6px; padding: 1.1rem 1.5rem;
+  font-size: 15px; font-weight: 600; cursor: pointer; margin-bottom: 2rem; font-family: 'DM Sans', sans-serif;
+}
+.admin-big-btn:hover { background: #1e3d2a; }
+
+.admin-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.admin-stat { background: var(--warm-white); border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem; text-align: center; text-decoration: none; color: var(--ink); display: block; transition: all 0.15s; }
+.admin-stat:hover { border-color: var(--accent); }
+.admin-stat .n { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; }
+.admin-stat .label { font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; }
+
+.admin-section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin: 2rem 0 0.75rem; }
+
+.quick-add-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
+.quick-add-btn {
+  display: flex; align-items: center; gap: 0.6rem; background: var(--warm-white); border: 1px solid var(--rule);
+  border-radius: 6px; padding: 0.9rem 1.1rem; font-size: 14px; color: var(--ink); cursor: pointer; text-align: left;
+  font-family: 'DM Sans', sans-serif;
+}
+.quick-add-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+
+.admin-list-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.9rem 0; border-bottom: 1px solid var(--rule);
+}
+.admin-list-row:last-child { border-bottom: none; }
+.admin-list-main { display: flex; align-items: center; gap: 0.9rem; }
+.admin-list-main img { width: 44px; height: 44px; object-fit: cover; border-radius: 4px; background: var(--rule); }
+.admin-list-title { font-weight: 600; font-size: 14px; }
+.admin-list-meta { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+.admin-list-actions { display: flex; gap: 0.5rem; }
+.admin-list-actions button, .admin-list-actions a {
+  font-size: 12px; border: 1px solid var(--rule); background: none; padding: 5px 10px; border-radius: 4px;
+  cursor: pointer; color: var(--ink-mid); text-decoration: none; font-family: 'DM Sans', sans-serif;
+}
+.admin-list-actions button:hover, .admin-list-actions a:hover { border-color: var(--accent); color: var(--accent); }
+
+.status-pill { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; padding: 3px 9px; border-radius: 10px; white-space: nowrap; }
+.status-published { background: var(--accent-light); color: var(--accent); }
+.status-draft { background: #fdf3d8; color: #8a6d1a; }
+.status-archived { background: #eee; color: #888; }
+
+.admin-field { margin-bottom: 1.25rem; }
+.admin-field label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-mid); margin-bottom: 0.4rem; }
+.admin-field label .hint { font-weight: 400; color: var(--ink-soft); margin-left: 0.4rem; }
+.admin-field input[type=text], .admin-field input[type=date], .admin-field input[type=url],
+.admin-field input[type=number], .admin-field textarea, .admin-field select {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 4px;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; background: var(--warm-white); color: var(--ink);
+}
+.admin-field textarea { min-height: 90px; resize: vertical; }
+.admin-field .slug-preview { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--ink-soft); margin-top: 0.4rem; }
+.admin-field-row { display: flex; gap: 1rem; }
+.admin-field-row .admin-field { flex: 1; }
+
+details.admin-more { margin: 1.5rem 0; border-top: 1px solid var(--rule); padding-top: 1rem; }
+details.admin-more summary { cursor: pointer; font-size: 13px; font-weight: 600; color: var(--accent); }
+details.admin-more[open] summary { margin-bottom: 1rem; }
+
+.admin-image-field { display: flex; align-items: center; gap: 1rem; }
+.admin-image-preview { width: 72px; height: 72px; object-fit: cover; border-radius: 4px; background: var(--rule); border: 1px solid var(--rule); }
+.admin-upload-btn { border: 1px dashed var(--rule); border-radius: 4px; padding: 10px 16px; font-size: 13px; cursor: pointer; background: var(--paper); }
+.admin-upload-btn:hover { border-color: var(--accent); }
+
+.admin-form-actions { display: flex; gap: 0.75rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+
+.admin-banner { padding: 0.9rem 1.1rem; border-radius: 4px; font-size: 13px; margin-bottom: 1.5rem; }
+.admin-banner.warn { background: #fdf3d8; color: #8a6d1a; border: 1px solid #f0dca0; }
+.admin-banner.error { background: #fbe4e1; color: #a13527; border: 1px solid #f2bcb3; }
+.admin-banner.success { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent); }
+.admin-banner.info { background: #eef2f6; color: #3a5068; border: 1px solid #cddae6; }
+
+.admin-modal-overlay { position: fixed; inset: 0; background: rgba(26,26,24,0.5); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 1.5rem; }
+.admin-modal { background: var(--warm-white); border-radius: 8px; padding: 2rem; max-width: 480px; width: 100%; }
+
+.spinner-inline { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--rule); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.tab-row { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
+.tab-row button { background: none; border: none; padding: 0.6rem 0.2rem; margin-right: 1.25rem; font-size: 13px; font-weight: 600; color: var(--ink-soft); cursor: pointer; border-bottom: 2px solid transparent; font-family: 'DM Sans', sans-serif; }
+.tab-row button.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.media-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+.media-item { border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.media-item img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+.media-item .path { font-size: 10px; color: var(--ink-soft); padding: 6px; word-break: break-all; }
+
+@media (max-width: 640px) {
+  .admin-stats-grid, .quick-add-grid, .media-grid { grid-template-columns: repeat(2, 1fr); }
+  .admin-field-row { flex-direction: column; }
+  .admin-main { padding: 80px 1rem 3rem; }
+}

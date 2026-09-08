@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Towards an inclusive digital health ecosystem",
+    "authors": "Yao Xie",
+    "venue": "Bulletin of the World Health Organization, 103(2):170-173",
+    "year": 2025,
+    "type": "Journal article",
+    "url": "https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en",
+    "featured": true,
+    "status": "published",
+    "slug": "who-bulletin-2025"
+  },
+  {
+    "title": "Artificial intelligence for contextual well-being",
+    "authors": "Yao Xie",
+    "venue": "PLoS ONE, 20(5):e0321426 — protocol for exploratory mixed-methods study",
+    "year": 2025,
+    "type": "Journal article",
+    "url": "https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en",
+    "featured": false,
+    "status": "published",
+    "slug": "plos-one-2025"
+  },
+  {
+    "title": "AI Contextual Framework: A Zoning Approach",
+    "authors": "Yao Xie",
+    "venue": "Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society",
+    "year": 2025,
+    "type": "Conference paper",
+    "url": "https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en",
+    "featured": true,
+    "status": "published",
+    "slug": "aies-2025"
+  },
+  {
+    "title": "Barriers and facilitators of international healthcare students' well-being",
+    "authors": "Yao Xie",
+    "venue": "JMIR Research Protocols, 13:e59927",
+    "year": 2024,
+    "type": "Journal article",
+    "url": "https://scholar.google.com/citations?user=vvafNIAAAAAJ&hl=en",
+    "featured": false,
+    "status": "published",
+    "slug": "jmir-2024"
+  }
+]
