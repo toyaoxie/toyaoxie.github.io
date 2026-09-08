@@ -531,6 +531,7 @@ async function renderForm(kind, slug) {
   `;
 
   wireImageField('imageUpload', 'imagePreview', 'imagePath', d.image);
+  wireImagePicker('imagePicker', 'imagePreview', 'imagePath', d.image);
 
   const titleInput = document.getElementById('f_title');
   const slugPreview = document.getElementById('slugPreview');
@@ -672,12 +673,48 @@ function imageFieldHTML(currentImage) {
   return `
     <div class="admin-field">
       <label>Image</label>
-      <div class="admin-image-field">
+      <div class="admin-image-field" style="align-items:flex-start;">
         <img id="imagePreview" class="admin-image-preview" src="${currentImage || '/yao-xie.png'}" alt="">
-        <label class="admin-upload-btn">Upload image<input type="file" id="imageUpload" accept="image/*" style="display:none;"></label>
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+          <select id="imagePicker">
+            <option value="">Choose from Media Library…</option>
+          </select>
+          <label class="admin-upload-btn">Or upload a new image<input type="file" id="imageUpload" accept="image/*" style="display:none;"></label>
+        </div>
         <input type="hidden" id="imagePath" value="${currentImage || ''}">
       </div>
     </div>`;
+}
+
+// Populates the "Choose from Media Library" dropdown from whatever is actually
+// in the repo's /media/ folder right now, and pre-selects the current image
+// if it's already in there. This is the reliable path: uploading a file to
+// /media/ directly through GitHub's own web UI has none of the deploy-timing
+// issues the in-panel uploader can hit, so picking from what's already there
+// sidesteps that entirely.
+async function wireImagePicker(pickerId, previewId, hiddenId, currentImage) {
+  const picker = document.getElementById(pickerId);
+  if (!picker) return;
+  try {
+    const files = (await listDir('media')).filter(f => f.type === 'file');
+    files.forEach(f => {
+      const opt = document.createElement('option');
+      opt.value = `/${f.path}`;
+      opt.textContent = f.name;
+      if (currentImage === `/${f.path}`) opt.selected = true;
+      picker.appendChild(opt);
+    });
+  } catch (e) {
+    const opt = document.createElement('option');
+    opt.disabled = true;
+    opt.textContent = "Couldn't load Media Library";
+    picker.appendChild(opt);
+  }
+  picker.addEventListener('change', () => {
+    if (!picker.value) return;
+    document.getElementById(hiddenId).value = picker.value;
+    document.getElementById(previewId).src = sessionImageCache[picker.value] || picker.value;
+  });
 }
 function wireImageField(uploadId, previewId, hiddenId, current) {
   const uploadEl = document.getElementById(uploadId);
@@ -801,7 +838,7 @@ async function renderMedia() {
   const files = (await listDir('media')).filter(f => f.type === 'file');
   app().innerHTML = `
     <h1 class="admin-h1">Media library</h1>
-    <p class="admin-sub">Images uploaded through any form land here automatically. Upload one directly if you just want the path to paste elsewhere.</p>
+    <p class="admin-sub">The most reliable way to add photos: upload them straight to the <code>media</code> folder on GitHub.com (drag and drop works there), then pick them from the dropdown in any News/Project/Initiative form. You can also upload directly from here if you prefer — same result, just a second path.</p>
     <label class="admin-upload-btn" style="display:inline-block; margin-bottom:2rem;">+ Upload image<input type="file" id="mediaUpload" accept="image/*" style="display:none;"></label>
     <div class="media-grid" id="mediaGrid">
       ${files.map(f => `
