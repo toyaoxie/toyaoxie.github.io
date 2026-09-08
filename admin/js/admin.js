@@ -531,7 +531,7 @@ async function renderForm(kind, slug) {
   `;
 
   wireImageField('imageUpload', 'imagePreview', 'imagePath', d.image);
-  wireImagePicker('imagePicker', 'imagePreview', 'imagePath', d.image);
+  wireImagePicker('mediaPickerGrid', 'imagePreview', 'imagePath', d.image);
 
   const titleInput = document.getElementById('f_title');
   const slugPreview = document.getElementById('slugPreview');
@@ -673,48 +673,76 @@ function imageFieldHTML(currentImage) {
   return `
     <div class="admin-field">
       <label>Image</label>
-      <div class="admin-image-field" style="align-items:flex-start;">
-        <img id="imagePreview" class="admin-image-preview" src="${currentImage || '/yao-xie.png'}" alt="">
-        <div style="display:flex; flex-direction:column; gap:0.5rem;">
-          <select id="imagePicker">
-            <option value="">Choose from Media Library…</option>
-          </select>
-          <label class="admin-upload-btn">Or upload a new image<input type="file" id="imageUpload" accept="image/*" style="display:none;"></label>
+      <div class="admin-image-field" style="align-items:flex-start; flex-direction:column;">
+        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.75rem;">
+          <img id="imagePreview" class="admin-image-preview" src="${currentImage || '/yao-xie.png'}" alt="">
+          <span id="imagePathLabel" style="font-size:12px; color:var(--ink-soft);">${currentImage || 'No image selected'}</span>
         </div>
-        <input type="hidden" id="imagePath" value="${currentImage || ''}">
+        <input type="text" id="mediaSearch" placeholder="Search media…" style="width:100%; padding:8px 12px; border:1px solid var(--rule); border-radius:4px; font-size:13px; margin-bottom:0.75rem;">
+        <div class="media-picker-grid" id="mediaPickerGrid"><p style="color:var(--ink-soft); font-size:13px;">Loading media library…</p></div>
+        <label class="admin-upload-btn" style="margin-top:0.75rem;">Or upload a new image<input type="file" id="imageUpload" accept="image/*" style="display:none;"></label>
       </div>
+      <input type="hidden" id="imagePath" value="${currentImage || ''}">
     </div>`;
 }
 
-// Populates the "Choose from Media Library" dropdown from whatever is actually
-// in the repo's /media/ folder right now, and pre-selects the current image
-// if it's already in there. This is the reliable path: uploading a file to
-// /media/ directly through GitHub's own web UI has none of the deploy-timing
-// issues the in-panel uploader can hit, so picking from what's already there
-// sidesteps that entirely.
-async function wireImagePicker(pickerId, previewId, hiddenId, currentImage) {
-  const picker = document.getElementById(pickerId);
-  if (!picker) return;
+// Populates the media picker grid from whatever is actually in the repo's
+// /media/ folder right now, and highlights the current image if it's in there.
+// This is the reliable path: uploading a file to /media/ directly through
+// GitHub's own web UI has none of the deploy-timing issues the in-panel
+// uploader can hit, so picking from what's already there sidesteps that.
+async function wireImagePicker(gridId, previewId, hiddenId, currentImage) {
+  const grid = document.getElementById(gridId);
+  const searchInput = document.getElementById('mediaSearch');
+  if (!grid) return;
+
+  let files = [];
   try {
-    const files = (await listDir('media')).filter(f => f.type === 'file');
-    files.forEach(f => {
-      const opt = document.createElement('option');
-      opt.value = `/${f.path}`;
-      opt.textContent = f.name;
-      if (currentImage === `/${f.path}`) opt.selected = true;
-      picker.appendChild(opt);
-    });
+    files = (await listDir('media')).filter(f => f.type === 'file');
   } catch (e) {
-    const opt = document.createElement('option');
-    opt.disabled = true;
-    opt.textContent = "Couldn't load Media Library";
-    picker.appendChild(opt);
+    grid.innerHTML = `<p style="color:#a13527; font-size:13px;">Couldn't load the media library: ${e.message}</p>`;
+    return;
   }
-  picker.addEventListener('change', () => {
-    if (!picker.value) return;
-    document.getElementById(hiddenId).value = picker.value;
-    document.getElementById(previewId).src = sessionImageCache[picker.value] || picker.value;
-  });
+
+  if (files.length === 0) {
+    grid.innerHTML = `<p style="color:var(--ink-soft); font-size:13px; max-width:340px;">
+      No images in <code>/media/</code> yet. Upload photos directly on GitHub
+      (drag files into the <code>media</code> folder → Commit), then reopen this page.
+    </p>`;
+    return;
+  }
+
+  function selectFile(path) {
+    document.getElementById(hiddenId).value = path;
+    document.getElementById(previewId).src = sessionImageCache[path] || path;
+    document.getElementById('imagePathLabel').textContent = path;
+    grid.querySelectorAll('.media-picker-tile').forEach(t => t.classList.toggle('selected', t.dataset.path === path));
+  }
+
+  function renderGrid(filterText) {
+    const filtered = filterText
+      ? files.filter(f => f.name.toLowerCase().includes(filterText.toLowerCase()))
+      : files;
+    if (filtered.length === 0) {
+      grid.innerHTML = `<p style="color:var(--ink-soft); font-size:13px;">No matches.</p>`;
+      return;
+    }
+    grid.innerHTML = filtered.map(f => {
+      const path = `/${f.path}`;
+      const isSelected = path === currentImage;
+      return `
+        <button type="button" class="media-picker-tile${isSelected ? ' selected' : ''}" data-path="${path}" title="${f.name}">
+          <img src="${sessionImageCache[path] || path}" alt="${f.name}">
+          <span>${f.name}</span>
+        </button>`;
+    }).join('');
+    grid.querySelectorAll('.media-picker-tile').forEach(tile => {
+      tile.addEventListener('click', () => selectFile(tile.dataset.path));
+    });
+  }
+
+  renderGrid('');
+  if (searchInput) searchInput.addEventListener('input', () => renderGrid(searchInput.value));
 }
 function wireImageField(uploadId, previewId, hiddenId, current) {
   const uploadEl = document.getElementById(uploadId);
