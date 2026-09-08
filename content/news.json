@@ -16,6 +16,22 @@
     }
   },
   {
+    "slug": "google-phd-fellowship-nomination-2026",
+    "title": "Nominated for the Google PhD Fellowship",
+    "summary": "Nominated by University College Dublin for the Google PhD Fellowship.",
+    "body": "In April 2026, Yao was nominated by University College Dublin for the Google PhD Fellowship.",
+    "date": "2026-04-01",
+    "category": "Recognition",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    }
+  },
+  {
     "slug": "dublin-tech-week-2026",
     "title": "Featured contributor at Dublin Tech Week",
     "summary": "Spoke on “Research to Startup” innovation pathways alongside European Commission and Parliament liaison offices in Ireland.",
