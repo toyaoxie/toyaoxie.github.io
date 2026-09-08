@@ -135,7 +135,13 @@ function uniqueSlug(base, existingItems) {
 function todayISO() { return new Date().toISOString().slice(0, 10); }
 
 // ---------- Image handling ----------
-function resizeImageToBase64(file, maxWidth = 1200, quality = 0.82) {
+// Resizes/compresses the image and returns both:
+//  - base64: what actually gets committed to GitHub
+//  - blob: kept locally so the preview can show instantly, without waiting
+//    on GitHub Pages to redeploy (that can take anywhere from a few seconds
+//    to a couple of minutes — the live /media/... URL isn't reliable right
+//    after a commit, so the UI must never depend on it for immediate feedback).
+function resizeImage(file, maxWidth = 1200, quality = 0.82) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -147,26 +153,38 @@ function resizeImageToBase64(file, maxWidth = 1200, quality = 0.82) {
         canvas.height = Math.round(img.height * scale);
         canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
         canvas.toBlob((blob) => {
+          if (!blob) { reject(new Error('Could not process this image — try a different file.')); return; }
           const r2 = new FileReader();
-          r2.onload = () => resolve(r2.result.split(',')[1]);
-          r2.onerror = reject;
+          r2.onload = () => resolve({ base64: r2.result.split(',')[1], blob });
+          r2.onerror = () => reject(new Error('Could not read the resized image.'));
           r2.readAsDataURL(blob);
         }, 'image/jpeg', quality);
       };
-      img.onerror = reject;
+      img.onerror = () => reject(new Error('That file doesn\'t look like a valid image.'));
       img.src = e.target.result;
     };
-    reader.onerror = reject;
+    reader.onerror = () => reject(new Error('Could not read the selected file.'));
     reader.readAsDataURL(file);
   });
 }
 
+// Caches local object URLs for images uploaded during this session, keyed by
+// live path (e.g. "/media/foo.jpg"), so any view showing that image — even
+// one rendered moments later, like the Media Library grid — doesn't depend
+// on GitHub Pages having redeployed yet.
+const sessionImageCache = {};
+
+// Returns { path, previewUrl }. `path` is the eventual live URL (for storing
+// in content JSON); `previewUrl` is a local object URL that works immediately,
+// before GitHub Pages has finished redeploying the new commit.
 async function uploadImage(file, suggestedName) {
-  const base64 = await resizeImageToBase64(file);
+  const { base64, blob } = await resizeImage(file);
   const filename = `${suggestedName || slugify(file.name.replace(/\.[^.]+$/, ''))}.jpg`;
   const path = `media/${filename}`;
   await putFileRaw(path, base64, `Upload image: ${filename}`);
-  return `/${path}`;
+  const previewUrl = URL.createObjectURL(blob);
+  sessionImageCache[`/${path}`] = previewUrl;
+  return { path: `/${path}`, previewUrl };
 }
 
 // ============================================================
@@ -668,13 +686,26 @@ function wireImageField(uploadId, previewId, hiddenId, current) {
     const file = uploadEl.files[0];
     if (!file) return;
     const preview = document.getElementById(previewId);
+    const wrapper = preview.closest('.admin-image-field');
+    let statusEl = wrapper.querySelector('.upload-status');
+    if (!statusEl) {
+      statusEl = document.createElement('span');
+      statusEl.className = 'upload-status';
+      statusEl.style.cssText = 'font-size:12px; color:var(--ink-soft);';
+      wrapper.appendChild(statusEl);
+    }
     preview.style.opacity = '0.5';
+    statusEl.textContent = 'Uploading…';
     try {
       const slugHint = (document.getElementById('f_title')?.value || 'image').toLowerCase().replace(/[^a-z0-9]+/g, '-');
-      const path = await uploadImage(file, `${slugHint}-${Date.now()}`);
+      const { path, previewUrl } = await uploadImage(file, `${slugHint}-${Date.now()}`);
       document.getElementById(hiddenId).value = path;
-      preview.src = path;
+      // Show the local copy immediately — the live GitHub Pages URL can take
+      // a minute or two to go live after this commit, so it isn't reliable yet.
+      preview.src = previewUrl;
+      statusEl.textContent = '✓ Uploaded — may take a minute to appear on the live site';
     } catch (e) {
+      statusEl.textContent = '';
       alert('Image upload failed: ' + e.message);
     } finally {
       preview.style.opacity = '1';
@@ -775,7 +806,7 @@ async function renderMedia() {
     <div class="media-grid" id="mediaGrid">
       ${files.map(f => `
         <div class="media-item">
-          <img src="/${f.path}" alt="">
+          <img src="${sessionImageCache['/' + f.path] || '/' + f.path}" alt="">
           <div class="path">/${f.path}</div>
         </div>
       `).join('') || '<p style="color:var(--ink-soft); font-size:14px;">No images uploaded yet.</p>'}
