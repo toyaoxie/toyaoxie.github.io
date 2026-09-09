@@ -2,8 +2,8 @@
   {
     "slug": "contextwell",
     "title": "ContextWell Lab",
-    "summary": "An independent research initiative focused on human-centred AI and well-being — translating theoretical frameworks into scalable AI applications and concrete clinical outcomes.",
-    "status": "Building",
+    "summary": "An independent research and innovation initiative exploring human-centred AI, well-being and human capability — translating research into frameworks, systems and real-world applications.",
+    "status": "Founded · Ongoing",
     "image": "/yao-xie.png",
     "overview": "ContextWell Lab is an independent research initiative focused on human-centred AI and well-being — translating the Spectrum of Contextual Well-being into applied AI systems and concrete clinical outcomes.",
     "what": "Research, system design and prototyping around agency-preserving AI in high-pressure environments, starting with medical education.",
@@ -15,14 +15,18 @@
   {
     "slug": "isla-society",
     "title": "ISLA Society",
-    "summary": "A society supporting international scholars — built to secure institutional funding and coordinate initiatives across digital strategy and community.",
-    "status": "Founded",
+    "summary": "A university society I founded at the University of Galway, created to support international scholars and students through community building, connection and collaborative opportunities.",
+    "status": "Founded · University of Galway",
     "image": "/yao-xie.png",
-    "overview": "ISLA Society supports international scholars, coordinating funding and initiatives that help them navigate academic and institutional life.",
+    "overview": "ISLA Society is a university society I founded at the University of Galway to support international scholars and students through community building, connection and collaborative opportunities. The society grew into a community reaching 500+ people, creating opportunities for international students and scholars to connect, share experiences and build a stronger academic community.",
     "what": "Institutional funding applications, digital strategy, and community initiatives for international scholars.",
     "role": "Founder — built a strategic team, secured institutional funding, and led cross-functional work in digital strategy.",
     "website": null,
     "featured": false,
-    "publishStatus": "published"
+    "publishStatus": "published",
+    "impactMetric": {
+      "value": "500+",
+      "label": "people reached"
+    }
   }
 ]

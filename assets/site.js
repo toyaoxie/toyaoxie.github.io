@@ -128,6 +128,8 @@ const NEWS_CATEGORY_STYLE = {
   'Academic Leadership':  { cls: 'cat-academic',    icon: 'fa-graduation-cap' },
   'Research':             { cls: 'cat-research',    icon: 'fa-flask' },
   'ContextWell':          { cls: 'cat-contextwell', icon: 'fa-microchip' },
+  'AI Governance':        { cls: 'cat-governance',  icon: 'fa-scale-balanced' },
+  'Entrepreneurship':     { cls: 'cat-entrepreneur',icon: 'fa-rocket' },
 };
 function newsVisualHTML(category, extraClass) {
   const style = NEWS_CATEGORY_STYLE[category] || { cls: 'cat-default', icon: 'fa-star' };
@@ -191,6 +193,37 @@ async function renderInitiativeArchive() {
   } catch (e) { console.error(e); }
 }
 
+// ---------- Build page: Current / Past (no photos — text + colour cards) ----------
+function buildCardFor(item) {
+  const a = document.createElement('a');
+  a.href = `/initiatives/${item.slug}/`;
+  a.className = 'project-card flagship build-card';
+  let metricHTML = '';
+  if (item.impactMetric && item.impactMetric.value) {
+    metricHTML = `<div class="impact-metric"><span class="num">${item.impactMetric.value}</span><span class="label">${item.impactMetric.label || ''}</span></div>`;
+  }
+  a.innerHTML = `
+    <span class="status">${item.status}</span>
+    <h4>${item.title}</h4>
+    ${metricHTML}
+    <p>${item.summary}</p>
+    <span class="card-link">Explore ${item.title} →</span>`;
+  return a;
+}
+
+async function renderBuildPage() {
+  const currentContainer = document.getElementById('buildCurrent');
+  const pastContainer = document.getElementById('buildPast');
+  if (!currentContainer && !pastContainer) return;
+  try {
+    const items = (await fetchJSON('/content/initiatives.json')).filter(i => i.publishStatus === 'published');
+    const current = items.filter(i => i.featured);
+    const past = items.filter(i => !i.featured);
+    if (currentContainer) current.forEach(item => currentContainer.appendChild(buildCardFor(item)));
+    if (pastContainer) past.forEach(item => pastContainer.appendChild(buildCardFor(item)));
+  } catch (e) { console.error(e); }
+}
+
 // ---------- Publications (Write page) ----------
 async function renderPublications() {
   const container = document.getElementById('pubList');
@@ -245,18 +278,47 @@ async function renderDetailPage(kind) {
     return;
   }
 
-  document.title = `${item.title} — Yao Xie`;
+  document.title = item.seoTitle || `${item.title} — Yao Xie`;
+
+  // SEO: description, keywords, and OG tags driven by per-item data when present
+  function setMeta(selector, attr, value) {
+    if (!value) return;
+    let el = document.querySelector(selector);
+    if (!el) {
+      el = document.createElement('meta');
+      if (selector.includes('property=')) el.setAttribute('property', attr);
+      else el.setAttribute('name', attr);
+      document.head.appendChild(el);
+    }
+    el.setAttribute('content', value);
+  }
+  const metaDescription = item.metaDescription || item.summary;
+  const keywordsValue = Array.isArray(item.keywords) ? item.keywords.join(', ') : item.keywords;
+  setMeta('meta[name="description"]', 'description', metaDescription);
+  setMeta('meta[name="keywords"]', 'keywords', keywordsValue);
+  setMeta('meta[property="og:title"]', 'og:title', item.seoTitle || item.title);
+  setMeta('meta[property="og:description"]', 'og:description', metaDescription);
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', `https://toyaoxie.github.io${location.pathname}`);
 
   let html = kind === 'news'
     ? newsVisualHTML(item.category, 'hero')
-    : `<img class="post-hero" src="${item.image}" alt="${item.title}">`;
+    : kind === 'initiatives'
+      ? ''
+      : `<img class="post-hero" src="${item.image}" alt="${item.title}">`;
 
   if (kind === 'news') {
     html += `<div class="post-meta">${formatDate(item.date)} <span class="cat"> · ${item.category}</span></div>`;
     html += `<h1 style="margin-bottom: 1.5rem;">${item.title}</h1>`;
     html += `<div class="post-body"><p>${item.body || item.summary}</p></div>`;
     if (item.source && item.source.url) {
-      html += `<p class="source-link">Coverage: <a href="${item.source.url}" target="_blank">${item.source.name} →</a></p>`;
+      const label = item.source.label || `${item.source.name || 'Read more'} →`;
+      html += `<p class="source-link"><a href="${item.source.url}" target="_blank" rel="noopener">${label}${item.source.label ? ' →' : ''}</a></p>`;
     }
   } else if (kind === 'projects') {
     html += `<span class="status">${item.status}</span>`;
@@ -270,6 +332,9 @@ async function renderDetailPage(kind) {
   } else if (kind === 'initiatives') {
     html += `<span class="status">${item.status}</span>`;
     html += `<h1 style="margin: 1rem 0 1.5rem;">${item.title}</h1>`;
+    if (item.impactMetric && item.impactMetric.value) {
+      html += `<div class="impact-metric"><span class="num">${item.impactMetric.value}</span><span class="label">${item.impactMetric.label || ''}</span></div>`;
+    }
     html += `<div class="post-body"><p>${item.overview}</p>`;
     if (item.what) html += `<h3 class="subhead">What it does</h3><p>${item.what}</p>`;
     if (item.role) html += `<h3 class="subhead">My role</h3><p>${item.role}</p>`;

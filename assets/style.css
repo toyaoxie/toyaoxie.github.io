@@ -128,6 +128,17 @@ h3.subhead:first-of-type { margin-top: 0; }
 .project-card p { font-size: 14px; color: var(--ink-mid); }
 .project-card.flagship { border-color: var(--accent); background: var(--warm-white); }
 
+/* Build page — Current / Past cards (no photos; text + colour only) */
+.build-card { max-width: 760px; display: block; text-decoration: none; color: var(--ink); margin-bottom: 1.5rem; }
+.build-card h4 { font-size: 22px; }
+.build-card .card-link { display: inline-block; margin-top: 0.9rem; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--accent); }
+.build-card:hover .card-link { text-decoration: underline; }
+
+/* Prominent impact metric (e.g. "500+ people reached") */
+.impact-metric { display: flex; align-items: baseline; gap: 0.6rem; margin: 0.9rem 0; }
+.impact-metric .num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 600; color: var(--accent); line-height: 1; }
+.impact-metric .label { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--ink-mid); text-transform: uppercase; letter-spacing: 0.06em; }
+
 /* WRITE */
 .list-ui { list-style: none; }
 .list-ui li { padding: 1rem 0; border-bottom: 1px solid var(--rule); font-size: 14px; color: var(--ink-mid); display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
@@ -159,6 +170,8 @@ h3.subhead:first-of-type { margin-top: 0; }
 .news-visual.cat-academic { background: var(--accent-mid); }
 .news-visual.cat-research { background: linear-gradient(135deg, var(--accent), var(--accent-mid)); }
 .news-visual.cat-contextwell { background: linear-gradient(135deg, var(--ink), var(--accent)); }
+.news-visual.cat-governance { background: linear-gradient(135deg, var(--ink), var(--gold)); }
+.news-visual.cat-entrepreneur { background: linear-gradient(135deg, var(--gold), var(--accent-mid)); }
 .news-visual.cat-default { background: var(--ink-soft); }
 
 /* NEWS / PROJECTS / INITIATIVES — shared archive grid pattern */
