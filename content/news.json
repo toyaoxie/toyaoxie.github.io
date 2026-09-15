@@ -1,5 +1,229 @@
 [
   {
+    "slug": "ucd-chas-symposium-2026",
+    "title": "Poster Presented at UCD CHAS Graduate Research Student Symposium",
+    "summary": "Presented a poster at the UCD CHAS Graduate Research Student Symposium.",
+    "body": "Presented a poster at the UCD College of Health and Agricultural Sciences (CHAS) Graduate Research Student Symposium.",
+    "date": "2026-04-30",
+    "category": "Research",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "Poster Presented at UCD CHAS Graduate Research Student Symposium | Yao Xie",
+    "metaDescription": "Yao Xie presented a poster at the UCD CHAS Graduate Research Student Symposium 2026.",
+    "keywords": [
+      "UCD CHAS symposium",
+      "graduate research",
+      "poster presentation",
+      "Yao Xie"
+    ]
+  },
+  {
+    "slug": "aies-2025-program-committee",
+    "title": "Program Committee Member & Reviewer for AAAI/ACM AIES 2025",
+    "summary": "Served as a Program Committee Member and reviewer for the AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025.",
+    "body": "Served as a Program Committee Member and reviewer for the AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025, reviewing submissions on AI ethics, governance and societal impact.",
+    "date": "2025-01-01",
+    "category": "Academic Service",
+    "status": "published",
+    "featured": false,
+    "source": {
+      "name": "AIES 2025 Program Committee",
+      "label": "AIES 2025 Program Committee",
+      "url": "https://www.aies-conference.com/2025/program-committee-2/"
+    },
+    "related": {
+      "project": "ai-contextual-framework",
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "AIES 2025 Program Committee Member & Reviewer | Yao Xie",
+    "metaDescription": "Yao Xie served as a Program Committee Member and reviewer for the AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025.",
+    "keywords": [
+      "AIES 2025",
+      "AI ethics conference",
+      "program committee",
+      "peer review",
+      "AI ethics and society",
+      "Yao Xie"
+    ]
+  },
+  {
+    "slug": "ecer-erc-2025",
+    "title": "Presented at the Emerging Researchers' Conference (ERC), ECER 2025",
+    "summary": "Presented research at the Emerging Researchers' Conference (ERC), held as part of ECER 2025.",
+    "body": "Presented research at the Emerging Researchers' Conference (ERC), held as part of the European Conference on Educational Research (ECER) 2025.",
+    "date": "2025-08-21",
+    "category": "Research",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "Presented at the Emerging Researchers' Conference, ECER 2025 | Yao Xie",
+    "metaDescription": "Yao Xie presented research at the Emerging Researchers' Conference (ERC), part of ECER 2025.",
+    "keywords": [
+      "ECER 2025",
+      "Emerging Researchers Conference",
+      "educational research",
+      "Yao Xie"
+    ]
+  },
+  {
+    "slug": "ecer-2025-attended",
+    "title": "Attended ECER 2025: The Value of Diversity in Education and Educational Research",
+    "summary": "Attended ECER 2025, including the conference theme The Value of Diversity in Education and Educational Research.",
+    "body": "Attended the European Conference on Educational Research (ECER) 2025, including the conference theme The Value of Diversity in Education and Educational Research.",
+    "date": "2025-08-22",
+    "category": "Conference",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "Attended ECER 2025 | Yao Xie",
+    "metaDescription": "Yao Xie attended ECER 2025, themed The Value of Diversity in Education and Educational Research.",
+    "keywords": [
+      "ECER 2025",
+      "European Conference on Educational Research",
+      "diversity in education",
+      "Yao Xie"
+    ]
+  },
+  {
+    "slug": "ucd-advantage-award-2025",
+    "title": "Received the UCD Advantage Award",
+    "summary": "Received the UCD Advantage Award in recognition of engagement and development beyond the core academic programme.",
+    "body": "Received the UCD Advantage Award in recognition of engagement and development beyond the core academic programme.",
+    "date": "2025-01-01",
+    "category": "Recognition",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "Yao Xie Receives the UCD Advantage Award",
+    "metaDescription": "Yao Xie received the UCD Advantage Award, recognising engagement and development beyond the core academic programme.",
+    "keywords": [
+      "UCD Advantage Award",
+      "University College Dublin",
+      "recognition",
+      "Yao Xie"
+    ]
+  },
+  {
+    "slug": "homer-to-hate-speech-2023",
+    "title": "Presented at “From Homer to Hate Speech: A Humanities View on Language in Conflict”",
+    "summary": "Presented at the international postgraduate conference hosted by the School of Languages, Literatures and Cultural Studies at Trinity College Dublin.",
+    "body": "Presented at “From Homer to Hate Speech: A Humanities View on Language in Conflict,” an international postgraduate conference hosted by the School of Languages, Literatures and Cultural Studies at Trinity College Dublin.",
+    "date": "2023-10-05",
+    "category": "Research",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "Presented at ‘From Homer to Hate Speech’ Conference, Trinity College Dublin | Yao Xie",
+    "metaDescription": "Yao Xie presented at the international postgraduate conference ‘From Homer to Hate Speech: A Humanities View on Language in Conflict’ at Trinity College Dublin.",
+    "keywords": [
+      "Trinity College Dublin",
+      "language in conflict",
+      "postgraduate conference",
+      "humanities",
+      "Yao Xie"
+    ]
+  },
+  {
+    "slug": "tcd-education-postgrad-conference-2023",
+    "title": "Poster Presented at Trinity College Dublin School of Education Postgraduate Student Research Conference",
+    "summary": "Presented a poster at the 14th Annual School of Education Postgraduate Student Research Conference 2023, Trinity College Dublin.",
+    "body": "Presented a poster at the 14th Annual School of Education Postgraduate Student Research Conference 2023, Trinity College Dublin.",
+    "date": "2023-05-13",
+    "category": "Research",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "Poster Presented at TCD School of Education Postgraduate Research Conference | Yao Xie",
+    "metaDescription": "Yao Xie presented a poster at the 14th Annual School of Education Postgraduate Student Research Conference 2023, Trinity College Dublin.",
+    "keywords": [
+      "Trinity College Dublin",
+      "School of Education",
+      "postgraduate research conference",
+      "poster presentation",
+      "Yao Xie"
+    ]
+  },
+  {
+    "slug": "galway-pgrs-symposium-2023",
+    "title": "Presented at the School of Education Postgraduate Research Symposium",
+    "summary": "Presented at the 11th Annual Postgraduate Research Symposium (PGRS), University of Galway.",
+    "body": "Presented at the 11th Annual Postgraduate Research Symposium (PGRS), University of Galway.",
+    "date": "2023-04-04",
+    "category": "Research",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "Presented at the University of Galway Postgraduate Research Symposium | Yao Xie",
+    "metaDescription": "Yao Xie presented at the 11th Annual Postgraduate Research Symposium (PGRS), University of Galway.",
+    "keywords": [
+      "University of Galway",
+      "postgraduate research symposium",
+      "PGRS",
+      "Yao Xie"
+    ]
+  },
+  {
+    "slug": "cssa-ireland-guest-speaker-2023",
+    "title": "Guest Speaker at Chinese Students and Scholars Association Ireland Annual Meeting",
+    "summary": "Served as a guest speaker at the annual meeting of the Chinese Students and Scholars Association Ireland, presenting on Navigating Cultural and Linguistic Adjustments as an International Student.",
+    "body": "Served as a guest speaker at the annual meeting of the Chinese Students and Scholars Association Ireland, presenting on Navigating Cultural and Linguistic Adjustments as an International Student.",
+    "date": "2023-01-01",
+    "category": "Speaking",
+    "status": "published",
+    "featured": false,
+    "source": null,
+    "related": {
+      "project": null,
+      "initiative": null,
+      "publication": null
+    },
+    "seoTitle": "Guest Speaker at Chinese Students and Scholars Association Ireland | Yao Xie",
+    "metaDescription": "Yao Xie was a guest speaker at the Chinese Students and Scholars Association Ireland annual meeting, on navigating cultural and linguistic adjustments as an international student.",
+    "keywords": [
+      "Chinese Students and Scholars Association Ireland",
+      "international students",
+      "guest speaker",
+      "Yao Xie"
+    ]
+  },
+  {
     "slug": "gate-project-ai-governance",
     "title": "Joining the GATE Project Team to Advance AI Governance",
     "summary": "Joined the GATE Project Team, contributing to interdisciplinary research on AI governance, responsible AI and the societal implications of emerging technologies.",
@@ -208,7 +432,7 @@
     "summary": "Overseeing peer review and meta-review decisions for the European Conference on Information Systems.",
     "body": "Yao was invited to serve as Associate Editor for the European Conference on Information Systems (ECIS) 2026, overseeing peer review processes, recruiting reviewers, and synthesising evaluations into meta-review decisions.",
     "date": "2026-01-01",
-    "category": "Academic Leadership",
+    "category": "Academic Service",
     "status": "published",
     "featured": false,
     "source": null,
@@ -220,11 +444,11 @@
   },
   {
     "slug": "bera-ecr-journey",
-    "title": "Paper accepted at BERA ECR Journey",
-    "summary": "New research accepted for presentation at the BERA Early Career Researcher event.",
-    "body": "New research was accepted for presentation at the BERA Early Career Researcher (ECR) Journey event.",
+    "title": "Paper Accepted for Presentation at BERA ECR Journey 2026",
+    "summary": "Paper accepted for presentation at BERA's ECR Journey: Becoming a Decisive Educational Researcher.",
+    "body": "Paper accepted for presentation at BERA's ECR Journey: Becoming a Decisive Educational Researcher, an event for early career educational researchers.",
     "date": "2026-01-01",
-    "category": "Research",
+    "category": "Conference",
     "status": "published",
     "featured": false,
     "source": null,
@@ -316,11 +540,11 @@
   },
   {
     "slug": "nelson-mandela-antiracism-2023",
-    "title": "Organised and spoke at Nelson Mandela Anti-Racism Week",
-    "summary": "Organiser and invited panellist for an open talk as part of Anti-Racism Week.",
-    "body": "Yao organised and served as an invited panellist for an open talk as part of Nelson Mandela Anti-Racism Week.",
-    "date": "2023-01-01",
-    "category": "Speaking",
+    "title": "Organised and Served as Panellist for OpenTalk During Nelson Mandela Anti-Racism Week",
+    "summary": "Organised and participated as a panellist in OpenTalk: Communication, Understanding, and Compassion during Nelson Mandela Anti-Racism Week.",
+    "body": "Organised and participated as a panellist in OpenTalk: Communication, Understanding, and Compassion during Nelson Mandela Anti-Racism Week at the University of Galway, discussing challenges and enablers experienced by ISLA individuals.",
+    "date": "2023-03-23",
+    "category": "Community & Leadership",
     "status": "published",
     "featured": false,
     "source": null,

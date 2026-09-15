@@ -63,30 +63,29 @@ async function renderHomepage() {
       });
     }
 
-    // Featured initiative (flagship, shown first in the homepage "Build" teaser)
-    const featProjEl = document.getElementById('homeFeaturedProjects');
-    if (featProjEl && homepage.featuredInitiative) {
+    // Build teaser: ContextWell Lab as the umbrella (title + tagline + CTA),
+    // with its research outputs listed underneath as a lineage, not parallel cards.
+    const labIntroEl = document.getElementById('homeLabIntro');
+    const labOutputsEl = document.getElementById('homeLabOutputs');
+    const labCTAEl = document.getElementById('homeLabCTA');
+
+    if (labIntroEl && homepage.buildIntro) labIntroEl.textContent = homepage.buildIntro;
+
+    if (homepage.featuredInitiative) {
       const initiatives = await fetchJSON('/content/initiatives.json').catch(() => []);
       const flagship = initiatives.find(i => i.slug === homepage.featuredInitiative);
-      if (flagship) {
-        const a = document.createElement('a');
-        a.href = `/initiatives/${flagship.slug}/`;
-        a.className = 'mini-card';
-        a.innerHTML = `<span class="tag">Flagship initiative</span><h4>${flagship.title}</h4><p>${flagship.summary}</p>`;
-        featProjEl.appendChild(a);
-      }
+      if (flagship && labCTAEl) labCTAEl.href = `/initiatives/${flagship.slug}/`;
     }
 
-    // Featured projects (homepage "Selected work" teaser)
-    if (featProjEl && homepage.featuredProjects) {
+    if (labOutputsEl && homepage.featuredProjects) {
       homepage.featuredProjects.forEach(slug => {
         const p = projects.find(x => x.slug === slug);
         if (!p) return;
         const a = document.createElement('a');
         a.href = `/projects/${p.slug}/`;
-        a.className = 'mini-card';
-        a.innerHTML = `<span class="tag">${p.status}</span><h4>${p.title}</h4><p>${p.summary}</p>`;
-        featProjEl.appendChild(a);
+        a.className = 'lab-output-item';
+        a.innerHTML = `<h4>${p.title}</h4><span class="output-type">${p.outputType || p.status}</span>`;
+        labOutputsEl.appendChild(a);
       });
     }
 
@@ -125,11 +124,15 @@ const NEWS_CATEGORY_STYLE = {
   'Speaking':             { cls: 'cat-speaking',    icon: 'fa-microphone-lines' },
   'Publication':          { cls: 'cat-publication', icon: 'fa-book-open' },
   'Recognition':          { cls: 'cat-recognition', icon: 'fa-award' },
-  'Academic Leadership':  { cls: 'cat-academic',    icon: 'fa-graduation-cap' },
+  'Academic Service':     { cls: 'cat-academic',    icon: 'fa-graduation-cap' },
   'Research':             { cls: 'cat-research',    icon: 'fa-flask' },
   'ContextWell':          { cls: 'cat-contextwell', icon: 'fa-microchip' },
   'AI Governance':        { cls: 'cat-governance',  icon: 'fa-scale-balanced' },
   'Entrepreneurship':     { cls: 'cat-entrepreneur',icon: 'fa-rocket' },
+  'Research framework':   { cls: 'cat-framework',   icon: 'fa-diagram-project' },
+  'Applied AI system':    { cls: 'cat-system',      icon: 'fa-microchip' },
+  'Conference':           { cls: 'cat-conference',  icon: 'fa-calendar-days' },
+  'Community & Leadership': { cls: 'cat-community', icon: 'fa-people-group' },
 };
 function newsVisualHTML(category, extraClass) {
   const style = NEWS_CATEGORY_STYLE[category] || { cls: 'cat-default', icon: 'fa-star' };
@@ -144,7 +147,7 @@ function tileFor(item, basePath) {
   const metaLine = item.status && !isNews
     ? `<span class="status">${item.status}</span>`
     : `<div class="news-meta">${formatDate(item.date)}${item.category ? ` <span class="cat"> · ${item.category}</span>` : ''}</div>`;
-  const visual = isNews ? newsVisualHTML(item.category) : `<img class="thumb" src="${item.image}" alt="${item.title}">`;
+  const visual = isNews ? newsVisualHTML(item.category) : newsVisualHTML(item.outputType || item.status);
   a.innerHTML = `
     ${visual}
     ${metaLine}
@@ -310,7 +313,7 @@ async function renderDetailPage(kind) {
     ? newsVisualHTML(item.category, 'hero')
     : kind === 'initiatives'
       ? ''
-      : `<img class="post-hero" src="${item.image}" alt="${item.title}">`;
+      : newsVisualHTML(item.outputType || item.status, 'hero');
 
   if (kind === 'news') {
     html += `<div class="post-meta">${formatDate(item.date)} <span class="cat"> · ${item.category}</span></div>`;

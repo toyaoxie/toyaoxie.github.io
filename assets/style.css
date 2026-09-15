@@ -75,6 +75,7 @@ h3.subhead:first-of-type { margin-top: 0; }
 .home-block { border-top: 1px solid var(--rule); padding: 4rem 10%; }
 .home-block:first-of-type { border-top: none; }
 .home-block .section-label { margin-bottom: 1.5rem; }
+.home-block p.lede { color: var(--ink-mid); max-width: 640px; margin: 1rem 0 1.5rem; font-size: 16px; }
 .territory-band { text-align: center; padding: 5rem 10%; }
 .territory-band p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(22px, 3vw, 32px); max-width: 700px; margin: 0 auto; color: var(--ink-mid); }
 
@@ -88,6 +89,13 @@ h3.subhead:first-of-type { margin-top: 0; }
 .mini-card .tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 .mini-card h4 { font-family: 'Playfair Display', serif; font-size: 17px; margin: 0.6rem 0 0.4rem; }
 .mini-card p { font-size: 13px; color: var(--ink-mid); }
+
+/* Homepage Build teaser — ContextWell Lab as umbrella, outputs listed beneath it */
+.lab-outputs { display: flex; flex-direction: column; margin-top: 1.5rem; max-width: 640px; border-top: 1px solid var(--rule); }
+.lab-output-item { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: var(--ink); }
+.lab-output-item h4 { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; margin: 0; }
+.lab-output-item:hover h4 { color: var(--accent); }
+.lab-output-item .output-type { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
 
 /* ABOUT */
 .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; }
@@ -172,6 +180,10 @@ h3.subhead:first-of-type { margin-top: 0; }
 .news-visual.cat-contextwell { background: linear-gradient(135deg, var(--ink), var(--accent)); }
 .news-visual.cat-governance { background: linear-gradient(135deg, var(--ink), var(--gold)); }
 .news-visual.cat-entrepreneur { background: linear-gradient(135deg, var(--gold), var(--accent-mid)); }
+.news-visual.cat-framework { background: linear-gradient(135deg, var(--accent-mid), var(--gold)); }
+.news-visual.cat-system { background: linear-gradient(135deg, var(--ink), var(--accent-mid)); }
+.news-visual.cat-conference { background: var(--ink-mid); }
+.news-visual.cat-community { background: linear-gradient(135deg, var(--gold), var(--ink)); }
 .news-visual.cat-default { background: var(--ink-soft); }
 
 /* NEWS / PROJECTS / INITIATIVES — shared archive grid pattern */

@@ -13,7 +13,8 @@
     "related": {
       "initiative": "contextwell",
       "publication": null
-    }
+    },
+    "outputType": "Applied AI system"
   },
   {
     "slug": "ai-contextual-framework",
@@ -29,6 +30,7 @@
     "related": {
       "initiative": null,
       "publication": "aies-2025"
-    }
+    },
+    "outputType": "Research framework"
   }
 ]
